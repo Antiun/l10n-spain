@@ -1,0 +1,967 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="0">
+    	
+    	<!-- Modelo 303 2013 -->
+    	<record id="modelo_303_2013" model="l10n.es.aeat.modelo303.template">
+            <field name="name">Modelo 303 2013</field>
+            <field name="date">1900-01-01</field>
+            <!--
+            	formato de linea csv:
+            		longitud,num_decimanles o 0 si tipo = a,tipo_formato,valor a evaluar
+            	a: alfanumerico
+            	n: numerico
+            -->
+			<field name="template">
+				2,0,a,'&lt;T'
+				3,0,a,'303'
+				2,0,a,'01'
+				1,0,a,'&gt;'
+				1,0,a,' '
+				1,0,a,'I' if c48 >= 0 else 'C'
+				9,0,a,nif
+				30,0,a,razon_social
+				15,0,a,' ' * 15
+				1,0,a,devolucion_mensual
+				4,0,a,ejercicio
+				2,0,a,periodo
+				15,2,n,c01
+				3,2,n,c02
+				15,2,n,c03
+				15,2,n,c04
+				3,2,n,c05
+				15,2,n,c06
+				15,2,n,c07
+				3,2,n,c08
+				15,2,n,c09
+				15,2,n,c10
+				3,2,n,c11
+				15,2,n,c12
+				15,2,n,c13
+				3,2,n,c14
+				15,2,n,c15
+				15,2,n,c16
+				3,2,n,c17
+				15,2,n,c18
+				15,2,n,c19
+				15,2,n,c20
+				15,2,n,c21
+				15,2,n,c22
+				15,2,n,c23
+				15,2,n,c24
+				15,2,n,c25
+				15,2,n,c26
+				15,2,n,c27
+				15,2,n,c28
+				15,2,n,c29
+				15,2,n,c30
+				15,2,n,c31
+				15,2,n,c32
+				15,2,n,c33
+				15,2,n,c34
+				15,2,n,c35
+				15,2,n,c36
+				15,2,n,c37
+				15,2,n,c38
+				3,2,n,c39
+				15,2,n,c40
+				15,2,n,c41
+				15,2,n,c42
+				15,2,n,c43
+				15,2,n,c44
+				15,2,n,c45
+				15,2,n,c46
+				15,2,n,c47
+				15,2,n,c48
+				15,2,n,c49
+				1,0,a,sin_actividad
+				15,2,n,c50
+				4,0,n,cc_ingreso_entidad
+				4,0,n,cc_ingreso_oficina
+				2,0,n,cc_ingreso_dc
+				10,0,n,cc_ingreso_num
+				1,0,a,'0'
+				15,2,n,cI
+				4,0,n,cc_devolucion_entidad
+				4,0,n,cc_devolucion_oficina
+				2,0,n,cc_devolucion_dc
+				10,0,n,cc_devolucion_num
+				1,0,a,complementaria
+				13,0,a,numero_justificante
+				400,0,a,' '*400
+				16,0,a,localidad
+				2,0,a,dia
+				10,0,a,mes
+				4,0,a,any
+				9,0,a,'&lt;/T30301&gt;'
+				2,0,a,clrf
+			</field>
+        </record>
+    	
+    	<!-- Casillas modelo 303 2013 -->
+    	<!-- IVA DEVENGADO -->
+    	<!-- 4% -->
+    	<record id="modelo_303_2013_casilla_01" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA devengado - Régimen general - Base imponible 4%</field>
+            <field name="code">01</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_dev_01')])]"/>
+        </record>
+        <record id="modelo_303_2013_casilla_02" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA devengado - Régimen general - Tipo 4%</field>
+            <field name="code">02</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="evaluate_as">c03 / c01 * 100.0 if c01 else 0.0</field>
+        </record>
+        <record id="modelo_303_2013_casilla_03" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA devengado - Régimen general - Cuota 4%</field>
+            <field name="code">03</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_dev_03')])]"/>
+        </record>
+		<!-- 10% -->
+        <record id="modelo_303_2013_casilla_04" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA devengado - Régimen general - Base imponible 10%</field>
+            <field name="code">04</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_dev_04_10')])]"/>
+        </record>
+		<record id="modelo_303_2013_casilla_05" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA devengado - Régimen general - Tipo 10%</field>
+            <field name="code">05</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="evaluate_as">c06 / c04 * 100.0 if c04 else 0</field>
+        </record>
+        <record id="modelo_303_2013_casilla_06" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA devengado - Régimen general - Cuota 10%</field>
+            <field name="code">06</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_dev_06_10')])]"/>
+        </record>
+        <!-- 21% -->
+        <record id="modelo_303_2013_casilla_07" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA devengado - Régimen general - Base imponible 21%</field>
+            <field name="code">07</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_dev_07_21'), ref('l10n_es.iva_pymes_dev_base_isp'), ref('l10n_es.iva_pymes_dev_base_intra_serv')])]"/>
+        </record>
+        <record id="modelo_303_2013_casilla_08" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA devengado - Régimen general - Tipo 21%</field>
+            <field name="code">08</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="evaluate_as">c09 / c07 * 100.0 if c07 else 0.0</field>
+        </record>
+        <record id="modelo_303_2013_casilla_09" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA devengado - Régimen general - Cuota 21%</field>
+            <field name="code">09</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_dev_09_21'), ref('l10n_es.iva_pymes_dev_quota_isp'), ref('l10n_es.iva_pymes_dev_quota_intra_serv')])]"/>
+        </record>
+		<!-- RE 0.5% -->
+		<record id="modelo_303_2013_casilla_10" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA devengado - Recargo de equivalencia - Base imponible 0.5%</field>
+            <field name="code">10</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_dev_10')])]"/>
+        </record>
+		<record id="modelo_303_2013_casilla_11" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA devengado - Recargo de equivalencia - Tipo 0.5%</field>
+            <field name="code">11</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="evaluate_as">c12 / c10 * 100.0 if c10 else 0.0</field>
+        </record>
+        <record id="modelo_303_2013_casilla_12" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA devengado - Recargo de equivalencia - Cuota 0.5%</field>
+            <field name="code">12</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_dev_12')])]"/>
+        </record>
+        <!-- RE 1.4% -->
+		<record id="modelo_303_2013_casilla_13" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA devengado - Recargo de equivalencia - Base imponible 1.4%</field>
+            <field name="code">13</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_dev_13_14')])]"/>
+        </record>
+		<record id="modelo_303_2013_casilla_14" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA devengado - Recargo de equivalencia - Tipo 1.4%</field>
+            <field name="code">14</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="evaluate_as">c15 / c13 * 100.0 if c13 else 0.0</field>
+        </record>
+        <record id="modelo_303_2013_casilla_15" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA devengado - Recargo de equivalencia - Cuota 1.4%</field>
+            <field name="code">15</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_dev_15_14')])]"/>
+        </record>
+        <!-- RE 5.2% -->
+		<record id="modelo_303_2013_casilla_16" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA devengado - Recargo de equivalencia - Base imponible 5.2%</field>
+            <field name="code">16</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_dev_16_52')])]"/>
+        </record>
+		<record id="modelo_303_2013_casilla_17" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA devengado - Recargo de equivalencia - Tipo 5.2%</field>
+            <field name="code">17</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="evaluate_as">c18 / c16 * 100.0 if c16 else 0.0</field>
+        </record>
+        <record id="modelo_303_2013_casilla_18" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA devengado - Recargo de equivalencia - Cuota 5.2%</field>
+            <field name="code">18</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_dev_18_52')])]"/>
+        </record>
+        
+        <record id="modelo_303_2013_casilla_19" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA devengado - Adquisiciones intracomunitarias - Base imponible</field>
+            <field name="code">19</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_dev_19')])]"/>
+        </record>
+        
+        <record id="modelo_303_2013_casilla_20" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA devengado - Adquisiciones intracomunitarias - Cuota</field>
+            <field name="code">20</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_dev_20')])]"/>
+        </record>
+        
+        <record id="modelo_303_2013_casilla_21" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA devengado - Total cuota devengada</field>
+            <field name="code">21</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_dev_21')])]"/>
+        </record>
+        
+        <!-- IVA DEDUCIBLE -->
+        <record id="modelo_303_2013_casilla_22" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA Deducible - Por cuotas soportadas en operaciones interiores corrientes. BI</field>
+            <field name="code">22</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_ded_22')])]"/>
+        </record>
+        <record id="modelo_303_2013_casilla_23" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA Deducible - Por cuotas soportadas en operaciones interiores corrientes. Cuota</field>
+            <field name="code">23</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_ded_23')])]"/>
+        </record>
+        
+        <record id="modelo_303_2013_casilla_24" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA Deducible - Por cuotas soportadas en operaciones interiores con bienes de inversión. BI</field>
+            <field name="code">24</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_ded_24')])]"/>
+        </record>
+        <record id="modelo_303_2013_casilla_25" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA Deducible - Por cuotas soportadas en operaciones interiores con bienes de inversión. Cuota</field>
+            <field name="code">25</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_ded_25')])]"/>
+        </record>
+         
+         <record id="modelo_303_2013_casilla_26" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA Deducible - Por cuotas satisfechas en las importaciones de bienes corrientes. BI</field>
+            <field name="code">26</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_ded_26')])]"/>
+        </record>
+        <record id="modelo_303_2013_casilla_27" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA Deducible - Por cuotas satisfechas en las importaciones de bienes corrientes. Cuota</field>
+            <field name="code">27</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_ded_27')])]"/>
+        </record>
+        
+        <record id="modelo_303_2013_casilla_28" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA Deducible - Por cuotas satisfechas en las importaciones de bienes de inversión. BI</field>
+            <field name="code">28</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_ded_28')])]"/>
+        </record>
+        <record id="modelo_303_2013_casilla_29" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA Deducible - Por cuotas satisfechas en las importaciones de bienes de inversión. Cuota</field>
+            <field name="code">29</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_ded_29')])]"/>
+        </record>
+        
+        <record id="modelo_303_2013_casilla_30" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA Deducible - En adquisiciones intracomunitarias de bienes corrientes. BI</field>
+            <field name="code">30</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_ded_30')])]"/>
+        </record>
+        <record id="modelo_303_2013_casilla_31" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA Deducible - En adquisiciones intracomunitarias de bienes corrientes. Cuota</field>
+            <field name="code">31</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_ded_31')])]"/>
+        </record>
+        
+        <record id="modelo_303_2013_casilla_32" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA Deducible - En adquisiciones intracomunitarias de bienes de inversión. BI</field>
+            <field name="code">32</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_ded_32')])]"/>
+        </record>
+        <record id="modelo_303_2013_casilla_33" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA Deducible - En adquisiciones intracomunitarias de bienes de inversión. Cuota</field>
+            <field name="code">33</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_ded_33')])]"/>
+        </record>
+        
+        <record id="modelo_303_2013_casilla_34" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA Deducible - Compensaciones Régimen Especial A.G.y P.</field>
+            <field name="code">34</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+        </record>
+        <record id="modelo_303_2013_casilla_35" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA Deducible - Regularización inversiones</field>
+            <field name="code">35</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+        </record>
+        <record id="modelo_303_2013_casilla_36" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA Deducible - Regularización por aplicación del porcentaje def.de prorrata</field>
+            <field name="code">36</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+        </record>
+        
+        <record id="modelo_303_2013_casilla_37" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">Deducible - Total a deducir</field>
+            <field name="code">37</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="evaluate_as">c23+c25+c27+c29+c31+c33+c34+c35+c36</field>
+        </record>
+        
+        <record id="modelo_303_2013_casilla_38" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">Diferencia</field>
+            <field name="code">38</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="evaluate_as">c21 - c37</field>
+        </record>
+        
+        <record id="modelo_303_2013_casilla_39" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">Atribuible a la Administración del Estado - %</field>
+            <field name="code">39</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="default_value">100</field>
+        </record>
+        
+        <record id="modelo_303_2013_casilla_40" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">Atribuible a la Administración del Estado</field>
+            <field name="code">40</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="evaluate_as">c38 * (c39 / 100.0)</field>
+        </record>
+        
+        <record id="modelo_303_2013_casilla_41" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">Cuotas a compensar de periodos anteriores</field>
+            <field name="code">41</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+        </record>
+        
+        <record id="modelo_303_2013_casilla_42" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">Entregas intracomunitarias</field>
+            <field name="code">42</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.base_pymes_intra_42')])]"/>
+        </record>
+        
+        <record id="modelo_303_2013_casilla_43" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">Exportaciones y operaciones asimiladas</field>
+            <field name="code">43</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.base_pymes_extra_43')])]"/>
+        </record>
+        
+        <record id="modelo_303_2013_casilla_44" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">Operaciones no sujetas o con inversión del sujeto pasivo. Derecho a deducción</field>
+            <field name="code">44</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.base_pymes_extra_44')])]"/>
+        </record>
+        
+        <record id="modelo_303_2013_casilla_45" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">Exclusivamente tributación conjunta Estado y Diputaciones Forales</field>
+            <field name="code">45</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+        </record>
+        
+        <record id="modelo_303_2013_casilla_46" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">Resultado</field>
+            <field name="code">46</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="evaluate_as">c40-c41+c45</field>
+        </record>
+        
+        <record id="modelo_303_2013_casilla_47" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">A deducir</field>
+            <field name="code">47</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+        </record>
+        
+        <record id="modelo_303_2013_casilla_48" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">Resultado de la liquidación</field>
+            <field name="code">48</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="evaluate_as">c46-c47</field>
+        </record>
+        
+        <record id="modelo_303_2013_casilla_49" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">Compensación - Importe a compensar ( si resulta negativa [48])</field>
+            <field name="code">49</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="evaluate_as">abs(c48) if c48 &lt; 0 else 0.0</field>
+        </record>
+        
+        <record id="modelo_303_2013_casilla_50" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">Devolución - Importe</field>
+            <field name="code">50</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+        </record>
+        
+        <!-- INGRESO - IMPORTE -->
+        <record id="modelo_303_2013_casilla_I" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">Ingreso - Importe</field>
+            <field name="code">I</field>
+            <field name="modelo303_id" ref="modelo_303_2013"/>
+            <field name="evaluate_as">c48 if c48 >= 0 else 0.0</field>
+        </record>
+        
+        <!-- Modelo 303 2014 -->
+    	<record id="modelo_303_2014" model="l10n.es.aeat.modelo303.template">
+            <field name="name">Modelo 303 2014</field>
+            <field name="date">2014-01-01</field>
+			<field name="template">
+				
+				; Pagina 0
+				2,0,a,'&lt;T'
+				3,0,a,'303'
+				1,0,a,'0'
+				4,0,a,ejercicio
+				2,0,a,periodo
+				5,0,a,'0000&gt;'
+				5,0,a,'&lt;AUX&gt;'
+				70,0,a,' '*70
+				4,0,a,'0001'
+				4,0,a,'    '
+				9,0,a,nif
+				213,0,a,' '*213
+				6,0,a,'&lt;/AUX&gt;'
+				8,0,a,'&lt;VECTOR&gt;'
+				; Una pagina uno y una pagina tres
+				17,0,a,'00100010030001FIN'
+				283,0,a,' '*283
+				9,0,a,'&lt;/VECTOR&gt;'
+				
+				; Pagina 1
+				2,0,a,'&lt;T' 
+				3,0,a,'303'
+				2,0,a,'01'
+				1,0,a,'&gt;'
+				1,0,a,'I' if c71 >= 0 else 'C'
+				9,0,a,nif
+				30,0,a,razon_social
+				15,0,a,' '*15
+				1,0,a,devolucion_mensual
+				1,0,a,'2'
+				1,0,a,'2'
+				1,0,a,'2'
+				8,0,a,' '
+				1,0,a,' '
+				1,0,a,sujeto_a_cdc
+				1,0,a,destinatario_operaciones_cdc
+				1,0,a,'2'
+				1,0,a,'2'
+				4,0,a,ejercicio
+				2,0,a,periodo
+				15,2,n,c01
+				3,2,n,c02
+				15,2,n,c03
+				15,2,n,c04
+				3,2,n,c05
+				15,2,n,c06
+				15,2,n,c07
+				3,2,n,c08
+				15,2,n,c09
+				15,2,n,c10
+				15,2,n,c11
+				15,2,n,c12
+				15,2,n,c13
+				15,2,n,c14
+				15,2,n,c15
+				15,2,n,c16
+				3,2,n,c17
+				15,2,n,c18
+				15,2,n,c19
+				3,2,n,c20
+				15,2,n,c21
+				15,2,n,c22
+				3,2,n,c23
+				15,2,n,c24
+				15,2,n,c25
+				15,2,n,c26
+				15,2,n,c27
+				15,2,n,c28
+				15,2,n,c29
+				15,2,n,c30
+				15,2,n,c31
+				15,2,n,c32
+				15,2,n,c33
+				15,2,n,c34
+				15,2,n,c35
+				15,2,n,c36
+				15,2,n,c37
+				15,2,n,c38
+				15,2,n,c39
+				15,2,n,c40
+				15,2,n,c41
+				15,2,n,c42
+				15,2,n,c43
+				15,2,n,c44
+				15,2,n,c45
+				15,2,n,c46
+				93,0,a,' '
+				9,0,a,'&lt;/T30301&gt;'
+				2,0,a,clrf
+				
+				; Pagina 3
+				2,0,a,'&lt;T'
+				3,0,a,'303'
+				2,0,a,'03'
+				1,0,a,'&gt;'
+				15,2,n,c59
+				15,2,n,c60
+				15,2,n,c61
+				15,2,n,c64
+				3,2,n,c65
+				15,2,n,c66
+				15,2,n,c67
+				15,2,n,c68
+				15,2,n,c69
+				15,2,n,c70
+				15,2,n,c71
+				15,2,n,c62
+				15,2,n,c63
+				15,2,n,c74
+				15,2,n,c75
+				1,0,a,'X' if complementaria == '1' else ' '
+				13,0,a,numero_justificante
+				1,0,a,'X' if complementaria == '1' else ' '
+				34,0,a,cc_ingreso_iban
+				289,0,a,' '*289
+				9,0,a,'&lt;/T30303&gt;'
+				2,0,a,clrf
+				
+				; FIN Pagina 0
+				7,0,a,'&lt;/T3030'
+				4,0,a,ejercicio
+				2,0,a,periodo
+				5,0,a,'0000&gt;'
+				2,0,a,clrf
+			</field>
+        </record>
+        
+        <!-- Casillas modelo 303 2014 -->
+    	<!-- IVA DEVENGADO -->
+    	<!-- 4% -->
+    	<record id="modelo_303_2014_casilla_01" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA devengado - Régimen general - Base imponible 4%</field>
+            <field name="code">01</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_dev_01')])]"/>
+        </record>
+        <record id="modelo_303_2014_casilla_02" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA devengado - Régimen general - Tipo 4%</field>
+            <field name="code">02</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="evaluate_as">c03 / c01 * 100.0 if c01 else 0.0</field>
+        </record>
+        <record id="modelo_303_2014_casilla_03" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA devengado - Régimen general - Cuota 4%</field>
+            <field name="code">03</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_dev_03')])]"/>
+        </record>
+		<!-- 10% -->
+        <record id="modelo_303_2014_casilla_04" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA devengado - Régimen general - Base imponible 10%</field>
+            <field name="code">04</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_dev_04_10')])]"/>
+        </record>
+		<record id="modelo_303_2014_casilla_05" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA devengado - Régimen general - Tipo 10%</field>
+            <field name="code">05</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="evaluate_as">c06 / c04 * 100.0 if c04 else 0</field>
+        </record>
+        <record id="modelo_303_2014_casilla_06" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA devengado - Régimen general - Cuota 10%</field>
+            <field name="code">06</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_dev_06_10')])]"/>
+        </record>
+        <!-- 21% -->
+        <record id="modelo_303_2014_casilla_07" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA devengado - Régimen general - Base imponible 21%</field>
+            <field name="code">07</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_dev_07_21')])]"/>
+        </record>
+        <record id="modelo_303_2014_casilla_08" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA devengado - Régimen general - Tipo 21%</field>
+            <field name="code">08</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="evaluate_as">c09 / c07 * 100.0 if c07 else 0.0</field>
+        </record>
+        <record id="modelo_303_2014_casilla_09" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA devengado - Régimen general - Cuota 21%</field>
+            <field name="code">09</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_dev_09_21')])]"/>
+        </record>
+        
+	
+		<record id="modelo_303_2014_casilla_10" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA Devengado - Adquisiciones intracomunitarias de bienes y servicios - Base imponible</field>
+            <field name="code">10</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_dev_19'), ref('l10n_es.iva_pymes_dev_base_intra_serv')])]"/>
+        </record>
+		<record id="modelo_303_2014_casilla_11" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA Devengado - Adquisiciones intracomunitarias de bienes y servicios - Cuota</field>
+            <field name="code">11</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_dev_20'), ref('l10n_es.iva_pymes_dev_quota_intra_serv')])]"/>
+        </record>
+
+        
+        <record id="modelo_303_2014_casilla_12" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA Devengado - Otras operaciones con ISP (excepto. adq. intracom) - Base imponible</field>
+            <field name="code">12</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_dev_base_isp')])]"/>
+        </record>
+        <record id="modelo_303_2014_casilla_13" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA Devengado - Otras operaciones con ISP (excepto. adq. intracom) - Cuota</field>
+            <field name="code">13</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_dev_quota_isp')])]"/>
+        </record>
+        
+        
+		<record id="modelo_303_2014_casilla_14" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA Devengado - Modificación bases y cuotas- Base imponible</field>
+            <field name="code">14</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+        </record>
+        <record id="modelo_303_2014_casilla_15" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA Devengado - Modificación bases y cuotas- Cuota</field>
+            <field name="code">15</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+        </record>
+        
+		<!-- Recargo equivalencia 0.5% -->
+		<record id="modelo_303_2014_casilla_16" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA devengado - Recargo de equivalencia - Base imponible 0.5%</field>
+            <field name="code">16</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_dev_10')])]"/>
+        </record>
+		<record id="modelo_303_2014_casilla_17" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA devengado - Recargo de equivalencia - Tipo 0.5%</field>
+            <field name="code">17</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="evaluate_as">c18 / c16 * 100.0 if c16 else 0.0</field>
+        </record>
+        <record id="modelo_303_2014_casilla_18" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA devengado - Recargo de equivalencia - Cuota 0.5%</field>
+            <field name="code">18</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_dev_12')])]"/>
+        </record>
+        <!-- Recargo equivalencia 1.4% -->
+        <record id="modelo_303_2014_casilla_19" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA devengado - Recargo de equivalencia - Base imponible 1.4%</field>
+            <field name="code">19</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_dev_13_14')])]"/>
+        </record>
+		<record id="modelo_303_2014_casilla_20" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA devengado - Recargo de equivalencia - Tipo 1.4%</field>
+            <field name="code">20</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="evaluate_as">c21 / c19 * 100.0 if c19 else 0.0</field>
+        </record>
+        <record id="modelo_303_2014_casilla_21" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA devengado - Recargo de equivalencia - Cuota 1.4%</field>
+            <field name="code">21</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_dev_15_14')])]"/>
+        </record>
+        <!-- Recargo equivalencia 5.2% -->
+        <record id="modelo_303_2014_casilla_22" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA devengado - Recargo de equivalencia - Base imponible 5.2%</field>
+            <field name="code">22</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_dev_16_52')])]"/>
+        </record>
+		<record id="modelo_303_2014_casilla_23" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA devengado - Recargo de equivalencia - Tipo 5.2%</field>
+            <field name="code">23</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="evaluate_as">c24 / c22 * 100.0 if c22 else 0.0</field>
+        </record>
+        <record id="modelo_303_2014_casilla_24" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA devengado - Recargo de equivalencia - Cuota 5.2%</field>
+            <field name="code">24</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_dev_18_52')])]"/>
+        </record>
+        
+        <record id="modelo_303_2014_casilla_25" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA Devengado - Modificaciones bases y cuotas del recargo de equivalencia - Base imponible</field>
+            <field name="code">25</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+        </record>
+        <record id="modelo_303_2014_casilla_26" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA Devengado - Modificaciones bases y cuotas del recargo de equivalencia - Imponible</field>
+            <field name="code">26</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+        </record>
+        
+        <record id="modelo_303_2014_casilla_27" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA Devengado - Total cuota devengada</field>
+            <field name="code">27</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="evaluate_as">c03+c06+c09+c11+c13+c15+c18+c21+c24+c26</field>
+        </record>
+        
+        <!-- IVA DEDUCIBLE -->
+        <record id="modelo_303_2014_casilla_28" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA Deducible - Por cuotas soportadas en operaciones interiores corrientes - Base</field>
+            <field name="code">28</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_ded_22')])]"/>
+        </record>
+        <record id="modelo_303_2014_casilla_29" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA Deducible - Por cuotas soportadas en operaciones interiores corrientes - Cuota</field>
+            <field name="code">29</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_ded_23')])]"/>
+        </record>
+        
+        <record id="modelo_303_2014_casilla_30" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA Deducible - Por cuotas soportadas en operaciones interiores con bienes de inversión - Base</field>
+            <field name="code">30</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_ded_24')])]"/>
+        </record>
+        <record id="modelo_303_2014_casilla_31" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA Deducible - Por cuotas soportadas en operaciones interiores con bienes de inversión - Cuota</field>
+            <field name="code">31</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_ded_25')])]"/>
+        </record>
+        
+        <record id="modelo_303_2014_casilla_32" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA Deducible - Por cuotas soportadas en las importaciones de bienes corrientes - Base</field>
+            <field name="code">32</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_ded_26')])]"/>
+        </record>
+        <record id="modelo_303_2014_casilla_33" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA Deducible - Por cuotas soportadas en las importaciones de bienes corrientes - Cuota</field>
+            <field name="code">33</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_ded_27')])]"/>
+        </record>
+        
+        <record id="modelo_303_2014_casilla_34" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA Deducible - Por cuotas soportadas en las importaciones de bienes de inversión - Base</field>
+            <field name="code">34</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_ded_28')])]"/>
+        </record>
+        <record id="modelo_303_2014_casilla_35" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA Deducible - Por cuotas soportadas en las importaciones de bienes de inversión - Cuota</field>
+            <field name="code">35</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_ded_29')])]"/>
+        </record>
+        
+        <record id="modelo_303_2014_casilla_36" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA Deducible - En adquisiciones intracomunitarias de bienes y servicios corrientes - Base</field>
+            <field name="code">36</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_ded_30')])]"/>
+        </record>
+        <record id="modelo_303_2014_casilla_37" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA Deducible - En adquisiciones intracomunitarias de bienes y servicios corrientes - Cuota</field>
+            <field name="code">37</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_ded_31')])]"/>
+        </record>
+        
+        <record id="modelo_303_2014_casilla_38" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA Deducible - En adquisiciones intracomunitarias de bienes de inversión - Base</field>
+            <field name="code">38</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_ded_32')])]"/>
+        </record>
+        <record id="modelo_303_2014_casilla_39" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA Deducible - En adquisiciones intracomunitarias de bienes de inversión - Cuota</field>
+            <field name="code">39</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.iva_pymes_ded_33')])]"/>
+        </record>
+        
+        <record id="modelo_303_2014_casilla_40" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA Deducible - Rectificación de deducciones - Base</field>
+            <field name="code">40</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+        </record>
+        
+        <record id="modelo_303_2014_casilla_41" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA Deducible - Rectificación de deducciones - Cuota</field>
+            <field name="code">41</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+        </record>
+        
+        <record id="modelo_303_2014_casilla_42" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA Deducible - Compensaciones Régimen Especial A.G. y P. - Cuota</field>
+            <field name="code">42</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+        </record>
+        
+        <record id="modelo_303_2014_casilla_43" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA Deducible - Regularización inversiones - Cuota</field>
+            <field name="code">43</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+        </record>
+        
+        <record id="modelo_303_2014_casilla_44" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">Regimen General - IVA Deducible - Regularización por aplicación del porcentaje definitivo de prorrata - Cuota</field>
+            <field name="code">44</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+        </record>
+        
+        <record id="modelo_303_2014_casilla_45" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">Total a deducir</field>
+            <field name="code">45</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="evaluate_as">c29+c31+c33+c35+c37+c39+c41+c42+c43+c44</field>
+        </record>
+        
+        <record id="modelo_303_2014_casilla_46" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">IVA Deducible - Resultado régimen general</field>
+            <field name="code">46</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="evaluate_as">c27-c45</field>
+        </record>
+        
+        <record id="modelo_303_2014_casilla_59" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">Información adicional - Entregas intracomunitarias de bienes y servicios</field>
+            <field name="code">59</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.base_pymes_intra_42')])]"/>
+        </record>
+        
+        <record id="modelo_303_2014_casilla_60" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">Información adicional - Exportaciones y operaciones asimiladas</field>
+            <field name="code">60</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.base_pymes_extra_43')])]"/>
+        </record>
+        
+        <record id="modelo_303_2014_casilla_61" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">Información adicional - Operaciones no sujetas o con inversión del sujeto pasivo que originan el derecho a deducción</field>
+            <field name="code">61</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="tax_code_ids" eval="[(6,0,[ref('l10n_es.base_pymes_extra_44')])]"/>
+        </record>
+        
+        <record id="modelo_303_2014_casilla_64" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">Resultado - Suma de resultados</field>
+            <field name="code">64</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="evaluate_as">c46+c58</field>
+        </record>
+        
+        <record id="modelo_303_2013_casilla_65" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">% Atribuible a la Administración del Estado</field>
+            <field name="code">65</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="default_value">100</field>
+        </record>
+        
+        <record id="modelo_303_2013_casilla_66" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">Atribuible a la Administración del Estado</field>
+            <field name="code">66</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="evaluate_as">c64 * (c65 / 100.0)</field>
+        </record>
+        
+        <record id="modelo_303_2013_casilla_67" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">Resultado - Cuotas a compensar de periodos anteriores</field>
+            <field name="code">67</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+        </record>
+        
+        <record id="modelo_303_2013_casilla_68" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">Resultado - Exclusivamente para sujetos pasivos que tributan conjuntamente a la Administración del Estado y a las Diputaciones Forales Resultado de la regularización anual</field>
+            <field name="code">68</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+        </record>
+        
+        <record id="modelo_303_2013_casilla_69" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">Resultado - Resultado</field>
+            <field name="code">69</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="evaluate_as">c66-c67+c68</field>
+        </record>
+        
+        <record id="modelo_303_2013_casilla_70" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">Resultado - A deducir</field>
+            <field name="code">70</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+        </record>
+        
+        <record id="modelo_303_2013_casilla_71" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">Resultado - Resultado de la liquidación</field>
+            <field name="code">71</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+            <field name="evaluate_as">c69-c70</field>
+        </record>
+        
+        <record id="modelo_303_2013_casilla_62" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">Información adicional - Importes devengados en período de liquidación según art. 75 LIVA. - Base Imponible</field>
+            <field name="code">62</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+        </record>
+        
+        <record id="modelo_303_2013_casilla_63" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">Información adicional - Importes devengados en período de liquidación según art. 75 LIVA. - Cuota</field>
+            <field name="code">63</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+        </record>
+        
+        <record id="modelo_303_2013_casilla_74" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">Información adicional - Cuotas de IVA soportados en operaciones que tributen por el régimen especial del criterio de caja. - Base Imponible</field>
+            <field name="code">74</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+        </record>
+        
+        <record id="modelo_303_2013_casilla_75" model="l10n.es.aeat.modelo303.casilla.template">
+            <field name="name">Información adicional - Cuotas de IVA soportados en operaciones que tributen por el régimen especial del criterio de caja. - Cuota</field>
+            <field name="code">75</field>
+            <field name="modelo303_id" ref="modelo_303_2014"/>
+        </record>
+    </data>
+</openerp>

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="0">
+    	<!-- Template 303 -->
+    	<record id="view_l10n_es_aeat_modelo303_casilla_template_tree" model="ir.ui.view">
+            <field name="name">l10n.es.aeat.modelo303.casilla.template.tree</field>
+            <field name="model">l10n.es.aeat.modelo303.casilla.template</field>
+            <field name="arch" type="xml">
+                <tree string="Casillas AEAT">
+                	<field name="modelo303_id"/>
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="evaluate_as"/>
+                    <field name="default_value"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_l10n_es_aeat_modelo303_casilla_template_form" model="ir.ui.view">
+            <field name="name">l10n.es.aeat.modelo303.casilla.template.form</field>
+            <field name="model">l10n.es.aeat.modelo303.casilla.template</field>
+            <field name="arch" type="xml">
+                <form string="Definición de casillas AEAT" version="7.0">
+                    <sheet>
+                        <group colspan="4">
+                        	<group>
+                            	<field name="code" required="1"/>
+                            	<field name="modelo303_id" required="1"/>
+                            	<field name="default_value"/>
+                            </group>
+                        	<group>
+                            	<field name="name" required="1"/>
+                            	<field name="evaluate_as"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="tax_code_ids" nolabel="1" colspan="4"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_l10n_es_aeat_modelo303_casilla_template_tree" model="ir.actions.act_window">
+            <field name="name">Template Casillas AEAT</field>
+            <field name="res_model">l10n.es.aeat.modelo303.casilla.template</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_l10n_es_aeat_modelo303_casilla_template_tree"/>
+            <field name="help">Definición de las casillas AEAT</field>
+        </record>
+
+		<menuitem id="menu_l10n_es_aeat_modelo303_casilla_template"
+            parent="account.account_template_folder"
+            action="action_l10n_es_aeat_modelo303_casilla_template_tree"
+            sequence="9999"
+            name="Casillas AEAT"/>
+            
+    	<!-- Casillas 303 -->
+    	<record id="view_l10n_es_aeat_modelo303_casilla_tree" model="ir.ui.view">
+            <field name="name">l10n.es.aeat.modelo303.casilla.tree</field>
+            <field name="model">l10n.es.aeat.modelo303.casilla</field>
+            <field name="arch" type="xml">
+                <tree string="Casillas AEAT">
+                	<field name="modelo303_id"/>
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="evaluate_as"/>
+                    <field name="default_value"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_l10n_es_aeat_modelo303_casilla_form" model="ir.ui.view">
+            <field name="name">l10n.es.aeat.modelo303.casilla.form</field>
+            <field name="model">l10n.es.aeat.modelo303.casilla</field>
+            <field name="arch" type="xml">
+                <form string="Definición de casillas AEAT" version="7.0">
+                    <sheet>
+                        <group colspan="4">
+                        	<group>
+                            	<field name="code" required="1"/>
+                            	<field name="modelo303_id" required="1"/>
+                            	<field name="default_value"/>
+                            </group>
+                        	<group>
+                            	<field name="name" required="1"/>
+                            	<field name="evaluate_as"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="tax_code_ids" nolabel="1" colspan="4"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_l10n_es_aeat_modelo303_casilla_tree" model="ir.actions.act_window">
+            <field name="name">Casillas AEAT</field>
+            <field name="res_model">l10n.es.aeat.modelo303.casilla</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_l10n_es_aeat_modelo303_casilla_tree"/>
+            <field name="help">Definición de las casillas AEAT</field>
+        </record>
+
+		<menuitem id="menu_l10n_es_aeat_modelo303_casilla"
+            parent="account.account_account_menu"
+            action="action_l10n_es_aeat_modelo303_casilla_tree"
+            sequence="9998"
+            name="Casillas AEAT"/>
+    	
+    	<!-- Informe modelo 303 -->
+        <record id="view_l10n_es_aeat_modelo303_report_tree" model="ir.ui.view">
+            <field name="name">l10n_es.aeat.modelo303.report.tree</field>
+            <field name="model">l10n.es.aeat.modelo303.report</field>
+            <field name="inherit_id" ref="l10n_es_aeat.view_l10n_es_aeat_report_tree"/>
+            <field name="arch" type="xml">
+                <tree position="attributes">
+                    <attribute name="string">AEAT 303 reports</attribute>
+                </tree>
+                <field name="fiscalyear_id" position="after">
+                    <field name="period"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_l10n_es_aeat_modelo303_report_form" model="ir.ui.view">
+            <field name="name">l10n_es.aeat.modelo303.report.form</field>
+            <field name="model">l10n.es.aeat.modelo303.report</field>
+            <field name="inherit_id" ref="l10n_es_aeat.view_l10n_es_aeat_report_form"/>
+            <field name="arch" type="xml">
+                <button name="%(l10n_es_aeat.action_wizard_aeat_export)d" position="attributes">
+                    <attribute name="name">%(action_wizard_aeat_modelo303_export)d</attribute>
+                </button>
+                <button name="%(action_wizard_aeat_modelo303_export)d" position="after">
+                	<button name="button_calculate_formulas" string="Calculate formulas" type="object" states="calculated" icon="gtk-execute"/>
+                </button>
+                <button name="button_recalculate" position="replace"/>
+                <field name="fiscalyear_id" position="after">
+                	<field name="company_partner_id" invisible="1"/>
+                    <field name="period" required="True"/>
+                    <field name="period_start_id" domain="[('fiscalyear_id', '=', fiscalyear_id), ('special', '=', False)]" required="True"/>
+                    <field name="period_end_id" domain="[('fiscalyear_id', '=', fiscalyear_id), ('special', '=', False)]" required="False"/>
+                    <field name="modelo303_id" required="True"/>
+                    <field name="cuenta_ingreso_id" domain="[('partner_id', '=', company_partner_id)]" required="False"/>
+                    <field name="cuenta_devolucion_id" domain="[('partner_id', '=', company_partner_id)]" required="False"/>
+                </field>
+                <field name="calculation_date" position="after">
+                    <field name="devolucion_mensual"/>
+                    <field name="sujeto_a_cdc"/>
+                    <field name="destinatario_operaciones_cdc"/>
+                    <field name="complementaria"/>
+                    <field name="previous_number" attrs="{'required': [('complementaria', '=', True)]}"/>
+                    <field name="sin_actividad"/>
+                </field>
+                <group string="Declaración" position="after">
+                    <group colspan="4">
+	                    <field name="valor_casilla_ids" nolabel="1">
+	                        <tree string="Casillas" editable="bottom">
+								<field name="code" readonly="1"/>
+								<field name="valor"/>
+	                            <field name="casilla_id" readonly="1"/>
+	                        </tree>
+	                    </field>
+	                </group>
+                </group>
+            </field>
+        </record>
+
+        <record id="action_l10n_es_aeat_modelo303_report" model="ir.actions.act_window">
+            <field name="name">AEAT model 303</field>
+            <field name="res_model">l10n.es.aeat.modelo303.report</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help">Create and query AEAT Model 303 reports</field>
+        </record>
+        <record model="ir.actions.act_window.view" id="action_l10n_es_aeat_modelo303_report_tree">
+            <field name="sequence" eval="2"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_l10n_es_aeat_modelo303_report_tree"/>
+            <field name="act_window_id" ref="action_l10n_es_aeat_modelo303_report"/>
+        </record>
+        <record model="ir.actions.act_window.view" id="action_l10n_es_aeat_modelo303_report_form">
+            <field name="sequence" eval="3"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_l10n_es_aeat_modelo303_report_form"/>
+            <field name="act_window_id" ref="action_l10n_es_aeat_modelo303_report"/>
+        </record>
+
+        <menuitem id="menu_aeat_modelo303_report"
+            parent="l10n_es_aeat.menu_root_aeat"
+            action="action_l10n_es_aeat_modelo303_report"
+            sequence="303"
+            name="AEAT 303 model"/>
+            
+        <!-- Valor casilla -->
+        <record id="view_l10n_es_aeat_modelo303_valor_casilla_tree" model="ir.ui.view">
+            <field name="name">l10n_es.aeat.modelo303.valor.casilla.tree</field>
+            <field name="model">l10n.es.aeat.modelo303.valor.casilla</field>
+            <field name="arch" type="xml">
+                <tree string="Valor casilla">
+                    <field name="casilla_id" context="{'fiscalyear_id':fiscalyear_id}"/>
+                    <field name="valor"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</openerp>

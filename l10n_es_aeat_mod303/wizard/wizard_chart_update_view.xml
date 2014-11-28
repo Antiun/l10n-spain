@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Wizard for Multi Charts of Accounts -->
+
+        <record id="view_update_multi_chart_modelo303" model="ir.ui.view">
+            <field name="name">Update Chart of Accounts from a Chart Template</field>
+            <field name="model">wizard.update.charts.accounts</field>
+            <field name="inherit_id" ref="account_chart_update.view_update_multi_chart"/>
+            <field name="arch" type="xml">
+                <field name="update_account" position="after">
+                	<field name="update_casilla" />
+                </field>
+                <page string="Fiscal positions" position="after">
+                    <page string="Modelos 303">
+                        <field name="modelo303_ids" nolabel="1">
+                            <tree string="Modelo 303" colors="red:type=='updated'">
+                                <field name="modelo303_id" />
+                                <field name="update_modelo303_id" />
+                                <field name="type" invisible="1" />
+                            </tree>
+                            <form string="Modelo 303" version="7.0">
+                                <group>
+                                    <field name="modelo303_id" />
+                                    <field name="type" />
+                                    <field name="update_modelo303_id" />
+                                    <field name="notes" readonly="1" class="oe_inline" />
+                                </group>
+                            </form>
+                        </field>
+                    </page>
+                    <page string="Casillas AEAT">
+                        <field name="casilla_ids" nolabel="1">
+                            <tree string="Casillas AEAT" colors="red:type=='updated'">
+                                <field name="casilla_id" />
+                                <field name="update_casilla_id" />
+                                <field name="type" invisible="1" />
+                            </tree>
+                            <form string="Casillas AEAT" version="7.0">
+                                <group>
+                                    <field name="casilla_id" />
+                                    <field name="type" />
+                                    <field name="update_casilla_id" />
+                                    <field name="notes" readonly="1" class="oe_inline" />
+                                </group>
+                            </form>
+                        </field>
+                    </page>
+                </page>
+                <field name="new_fps" position="after">
+                    <field name="new_modelos303" />
+                    <field name="new_casillas" />
+                </field>
+                <field name="updated_fps">
+	                <field name="updated_modelos303" />
+	                <field name="updated_casillas" />
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>

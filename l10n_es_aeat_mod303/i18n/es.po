@@ -1,0 +1,705 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* l10n_es_aeat_modelo303
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-20 14:43+0000\n"
+"PO-Revision-Date: 2014-03-20 14:43+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_es_aeat_modelo303
+#: field:l10n.es.aeat.modelo303.report,sin_actividad:0
+msgid "Sin actividad"
+msgstr "Sin actividad"
+
+#. module: l10n_es_aeat_modelo303
+#: code:addons/l10n_es_aeat_modelo303/wizard/wizard_chart_update.py:205
+#, python-format
+msgid "The tax_codes_ids field is different.\n"
+""
+msgstr "El campo tax_codes_ids es diferente.\n"
+""
+
+#. module: l10n_es_aeat_modelo303
+#: model:ir.model,name:l10n_es_aeat_modelo303.model_wizard_update_charts_accounts_modelo303
+msgid "wizard.update.charts.accounts.modelo303"
+msgstr "wizard.update.charts.accounts.modelo303"
+
+#. module: l10n_es_aeat_modelo303
+#: sql_constraint:l10n.es.aeat.modelo303.valor.casilla:0
+msgid "Una casilla solo puede tener un valor"
+msgstr "Una casilla solo puede tener un valor"
+
+#. module: l10n_es_aeat_modelo303
+#: code:addons/l10n_es_aeat_modelo303/wizard/wizard_chart_update.py:199
+#, python-format
+msgid "The code field is different.\n"
+""
+msgstr "El campo Codigo es diferente.\n"
+""
+
+#. module: l10n_es_aeat_modelo303
+#: view:l10n.es.aeat.modelo303.report:0
+msgid "Declaración"
+msgstr "Declaración"
+
+#. module: l10n_es_aeat_modelo303
+#: field:l10n.es.aeat.modelo303.report,cuenta_devolucion_id:0
+msgid "CCC devolución"
+msgstr "CCC devolución"
+
+#. module: l10n_es_aeat_modelo303
+#: selection:wizard.update.charts.accounts.casilla,type:0
+#: selection:wizard.update.charts.accounts.modelo303,type:0
+msgid "New template"
+msgstr "Nueva plantilla"
+
+#. module: l10n_es_aeat_modelo303
+#: field:l10n.es.aeat.modelo303,name:0
+#: field:l10n.es.aeat.modelo303.casilla,name:0
+#: field:l10n.es.aeat.modelo303.casilla.template,name:0
+#: field:l10n.es.aeat.modelo303.template,name:0
+msgid "Nombre"
+msgstr "Nombre"
+
+#. module: l10n_es_aeat_modelo303
+#: code:addons/l10n_es_aeat_modelo303/wizard/wizard_chart_update.py:144
+#, python-format
+msgid "The date field is different.\n"
+""
+msgstr "El campo Fecha es diferente.\n"
+""
+
+#. module: l10n_es_aeat_modelo303
+#: selection:l10n.es.aeat.modelo303.report,period:0
+msgid "March"
+msgstr "Marzo"
+
+#. module: l10n_es_aeat_modelo303
+#: code:addons/l10n_es_aeat_modelo303/wizard/wizard_chart_update.py:208
+#, python-format
+msgid "The default_value field is different.\n"
+""
+msgstr "El campo \"Valor por defecto\" es diferente.\n"
+""
+
+#. module: l10n_es_aeat_modelo303
+#: view:l10n.es.aeat.modelo303.report:0
+msgid "Casillas"
+msgstr "Casillas"
+
+#. module: l10n_es_aeat_modelo303
+#: field:l10n.es.aeat.modelo303.report,company_id:0
+msgid "Company"
+msgstr "Compañia"
+
+#. module: l10n_es_aeat_modelo303
+#: field:wizard.update.charts.accounts,update_casilla:0
+msgid "Update Casillas AEAT and 303"
+msgstr "Actualizar Casillas AEAT y 303"
+
+#. module: l10n_es_aeat_modelo303
+#: selection:l10n.es.aeat.modelo303.report,type:0
+msgid "Substitutive"
+msgstr "Sustitutivo"
+
+#. module: l10n_es_aeat_modelo303
+#: field:l10n.es.aeat.modelo303.report,previous_number:0
+msgid "Previous declaration number"
+msgstr "Número de declaración anterior"
+
+#. module: l10n_es_aeat_modelo303
+#: field:l10n.es.aeat.modelo303.casilla,default_value:0
+#: field:l10n.es.aeat.modelo303.casilla.template,default_value:0
+msgid "Valor por defecto"
+msgstr "Valor por defecto"
+
+#. module: l10n_es_aeat_modelo303
+#: view:l10n.es.aeat.modelo303.report:0
+msgid "549"
+msgstr "549"
+
+#. module: l10n_es_aeat_modelo303
+#: model:ir.model,name:l10n_es_aeat_modelo303.model_l10n_es_aeat_modelo303
+msgid "AEAT modelo 303"
+msgstr "AEAT modelo 303"
+
+#. module: l10n_es_aeat_modelo303
+#: selection:l10n.es.aeat.modelo303.export_to_boe,state:0
+msgid "get"
+msgstr "get"
+
+#. module: l10n_es_aeat_modelo303
+#: field:wizard.update.charts.accounts.casilla,notes:0
+#: field:wizard.update.charts.accounts.modelo303,notes:0
+msgid "Notes"
+msgstr "Notas"
+
+#. module: l10n_es_aeat_modelo303
+#: field:l10n.es.aeat.modelo303.report,number:0
+msgid "Declaration number"
+msgstr "Número declaración"
+
+#. module: l10n_es_aeat_modelo303
+#: code:addons/l10n_es_aeat_modelo303/wizard/wizard_chart_update.py:352
+#, python-format
+msgid "Updated casillas %s.\n"
+""
+msgstr "Actualizadas %s casillas.\n"
+""
+
+#. module: l10n_es_aeat_modelo303
+#: field:wizard.update.charts.accounts,updated_modelos303:0
+msgid "Updated Modelos303"
+msgstr "Actualizado Modelos303"
+
+#. module: l10n_es_aeat_modelo303
+#: selection:l10n.es.aeat.modelo303.report,state:0
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. module: l10n_es_aeat_modelo303
+#: selection:l10n.es.aeat.modelo303.report,period:0
+msgid "July"
+msgstr "Julio"
+
+#. module: l10n_es_aeat_modelo303
+#: model:ir.model,name:l10n_es_aeat_modelo303.model_l10n_es_aeat_modelo303_report
+msgid "AEAT modelo 303 report"
+msgstr "Informe AEAT Modelo 303"
+
+#. module: l10n_es_aeat_modelo303
+#: model:ir.actions.act_window,name:l10n_es_aeat_modelo303.action_wizard_aeat_modelo303_export
+msgid "Export AEAT 303 BOE file"
+msgstr "Exportar archivo BOE AEAT 303"
+
+#. module: l10n_es_aeat_modelo303
+#: field:l10n.es.aeat.modelo303.report,period_start_id:0
+msgid "Period start"
+msgstr "Periodo inicial"
+
+#. module: l10n_es_aeat_modelo303
+#: code:addons/l10n_es_aeat_modelo303/wizard/wizard_chart_update.py:291
+#, python-format
+msgid "Updated modelos303 %s.\n"
+""
+msgstr "Actualizados %s modelos303.\n"
+""
+
+#. module: l10n_es_aeat_modelo303
+#: model:ir.model,name:l10n_es_aeat_modelo303.model_l10n_es_aeat_modelo303_valor_casilla
+msgid "AEAT modelo 303 valor casilla"
+msgstr "AEAT modelo 303 valor casilla"
+
+#. module: l10n_es_aeat_modelo303
+#: field:l10n.es.aeat.modelo303.report,company_partner_id:0
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: l10n_es_aeat_modelo303
+#: field:l10n.es.aeat.modelo303,template:0
+#: field:l10n.es.aeat.modelo303.template,template:0
+msgid "Template"
+msgstr "Plantilla"
+
+#. module: l10n_es_aeat_modelo303
+#: view:wizard.update.charts.accounts:0
+msgid "Modelos 303"
+msgstr "Modelos 303"
+
+#. module: l10n_es_aeat_modelo303
+#: field:l10n.es.aeat.modelo303.report,destinatario_operaciones_cdc:0
+msgid "Destinatario de operaciones con criterio de caja"
+msgstr "Destinatario de operaciones con criterio de caja"
+
+#. module: l10n_es_aeat_modelo303
+#: field:l10n.es.aeat.modelo303.valor.casilla,valor:0
+msgid "Valor"
+msgstr "Valor"
+
+#. module: l10n_es_aeat_modelo303
+#: field:l10n.es.aeat.modelo303.report,state:0
+msgid "State"
+msgstr "Estado"
+
+#. module: l10n_es_aeat_modelo303
+#: selection:l10n.es.aeat.modelo303.report,period:0
+msgid "First quarter"
+msgstr "Primer trimestre"
+
+#. module: l10n_es_aeat_modelo303
+#: code:addons/l10n_es_aeat_modelo303/wizard/wizard_chart_update.py:202
+#, python-format
+msgid "The evaluate_as field is different.\n"
+""
+msgstr "El campo \"Evaluar como\" es diferente.\n"
+""
+
+#. module: l10n_es_aeat_modelo303
+#: model:ir.model,name:l10n_es_aeat_modelo303.model_l10n_es_aeat_modelo303_casilla
+msgid "Casillas AEAT modelo 303"
+msgstr "Casillas AEAT modelo 303"
+
+#. module: l10n_es_aeat_modelo303
+#: field:wizard.update.charts.accounts,updated_casillas:0
+msgid "Updated Casillas"
+msgstr "Actualizadas casillas"
+
+#. module: l10n_es_aeat_modelo303
+#: code:addons/l10n_es_aeat_modelo303/wizard/wizard_chart_update.py:356
+#, python-format
+msgid "Exception writing casilla %s: %s - %s.\n"
+""
+msgstr "Error escribiendo casilla %s: %s - %s.\n"
+""
+
+#. module: l10n_es_aeat_modelo303
+#: model:ir.model,name:l10n_es_aeat_modelo303.model_l10n_es_aeat_modelo303_template
+msgid "AEAT modelo 303 template"
+msgstr "AEAT modelo 303 template"
+
+#. module: l10n_es_aeat_modelo303
+#: field:wizard.update.charts.accounts,modelo303_ids:0
+msgid "Modelo303"
+msgstr "Modelo303"
+
+#. module: l10n_es_aeat_modelo303
+#: code:addons/l10n_es_aeat_modelo303/wizard/wizard_chart_update.py:361
+#, python-format
+msgid "Created or updated casilla %s.\n"
+""
+msgstr "Casillas creadas o actualizadas %s.\n"
+""
+
+#. module: l10n_es_aeat_modelo303
+#: view:wizard.update.charts.accounts:0
+msgid "Fiscal positions"
+msgstr "Posiciones fiscales"
+
+#. module: l10n_es_aeat_modelo303
+#: code:addons/l10n_es_aeat_modelo303/wizard/wizard_chart_update.py:295
+#, python-format
+msgid "Exception writing modelo303 %s: %s - %s.\n"
+""
+msgstr "Error escribiendo modelo303 %s: %s - %s.\n"
+""
+
+#. module: l10n_es_aeat_modelo303
+#: field:l10n.es.aeat.modelo303.report,support_type:0
+msgid "Support Type"
+msgstr "Tipo de soporte"
+
+#. module: l10n_es_aeat_modelo303
+#: field:l10n.es.aeat.modelo303.casilla,code:0
+#: field:l10n.es.aeat.modelo303.casilla.template,code:0
+#: field:l10n.es.aeat.modelo303.valor.casilla,casilla_id:0
+#: field:l10n.es.aeat.modelo303.valor.casilla,code:0
+#: field:wizard.update.charts.accounts,casilla_ids:0
+msgid "Casilla"
+msgstr "Casilla"
+
+#. module: l10n_es_aeat_modelo303
+#: field:l10n.es.aeat.modelo303.valor.casilla,report_id:0
+msgid "Report"
+msgstr "Informe"
+
+#. module: l10n_es_aeat_modelo303
+#: field:l10n.es.aeat.modelo303.report,complementaria:0
+msgid "Autoliquidación complementaria"
+msgstr "Autoliquidación complementaria"
+
+#. module: l10n_es_aeat_modelo303
+#: help:l10n.es.aeat.modelo303.report,devolucion_mensual:0
+msgid "Inscrito en el Registro de Devolución Mensual"
+msgstr "Inscrito en el Registro de Devolución Mensual"
+
+#. module: l10n_es_aeat_modelo303
+#: code:addons/l10n_es_aeat_modelo303/wizard/wizard_chart_update.py:147
+#, python-format
+msgid "The template field is different.\n"
+""
+msgstr "El campo Plantilla es diferente.\n"
+""
+
+#. module: l10n_es_aeat_modelo303
+#: field:l10n.es.aeat.modelo303.report,calculation_date:0
+msgid "Calculation date"
+msgstr "Fecha de cálculo"
+
+#. module: l10n_es_aeat_modelo303
+#: view:l10n.es.aeat.modelo303.report:0
+msgid "Calculate formulas"
+msgstr "Calcular fórmulas"
+
+#. module: l10n_es_aeat_modelo303
+#: code:addons/l10n_es_aeat_modelo303/modelo303.py:175
+#, python-format
+msgid "El periodo inicial debe ser inferior o igual periodo final."
+msgstr "El periodo inicial debe ser inferior o igual periodo final."
+
+#. module: l10n_es_aeat_modelo303
+#: model:ir.actions.act_window,help:l10n_es_aeat_modelo303.action_l10n_es_aeat_modelo303_casilla_template_tree
+#: model:ir.actions.act_window,help:l10n_es_aeat_modelo303.action_l10n_es_aeat_modelo303_casilla_tree
+msgid "Definición de las casillas AEAT"
+msgstr "Definición de las casillas AEAT"
+
+#. module: l10n_es_aeat_modelo303
+#: selection:l10n.es.aeat.modelo303.report,period:0
+msgid "September"
+msgstr "Septiembre"
+
+#. module: l10n_es_aeat_modelo303
+#: selection:l10n.es.aeat.modelo303.report,period:0
+msgid "December"
+msgstr "Diciembre"
+
+#. module: l10n_es_aeat_modelo303
+#: view:l10n.es.aeat.modelo303.valor.casilla:0
+msgid "Valor casilla"
+msgstr "Valor casilla"
+
+#. module: l10n_es_aeat_modelo303
+#: field:l10n.es.aeat.modelo303.casilla,evaluate_as:0
+#: field:l10n.es.aeat.modelo303.casilla.template,evaluate_as:0
+msgid "Evaluar como"
+msgstr "Evaluar como"
+
+#. module: l10n_es_aeat_modelo303
+#: model:ir.model,name:l10n_es_aeat_modelo303.model_wizard_update_charts_accounts_casilla
+msgid "wizard.update.charts.accounts.casilla"
+msgstr "wizard.update.charts.accounts.casilla"
+
+#. module: l10n_es_aeat_modelo303
+#: selection:l10n.es.aeat.modelo303.report,support_type:0
+msgid "DVD"
+msgstr "DVD"
+
+#. module: l10n_es_aeat_modelo303
+#: code:addons/l10n_es_aeat_modelo303/wizard/wizard_chart_update.py:300
+#, python-format
+msgid "Created or updated modelo303 %s.\n"
+""
+msgstr "Modelos 303 creados o actualizados %s.\n"
+""
+
+#. module: l10n_es_aeat_modelo303
+#: selection:l10n.es.aeat.modelo303.report,state:0
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: l10n_es_aeat_modelo303
+#: field:l10n.es.aeat.modelo303.report,sujeto_a_cdc:0
+msgid "Sujeto a criterio de caja"
+msgstr "Sujeto a criterio de caja"
+
+#. module: l10n_es_aeat_modelo303
+#: selection:wizard.update.charts.accounts.casilla,type:0
+#: selection:wizard.update.charts.accounts.modelo303,type:0
+msgid "Updated template"
+msgstr "Plantilla actualizada"
+
+#. module: l10n_es_aeat_modelo303
+#: selection:l10n.es.aeat.modelo303.export_to_boe,state:0
+msgid "open"
+msgstr "open"
+
+#. module: l10n_es_aeat_modelo303
+#: selection:l10n.es.aeat.modelo303.report,period:0
+msgid "August"
+msgstr "Agosto"
+
+#. module: l10n_es_aeat_modelo303
+#: selection:l10n.es.aeat.modelo303.report,type:0
+msgid "Normal"
+msgstr "Normal"
+
+#. module: l10n_es_aeat_modelo303
+#: field:l10n.es.aeat.modelo303.casilla,tax_code_ids:0
+#: field:l10n.es.aeat.modelo303.casilla.template,tax_code_ids:0
+#: field:l10n.es.aeat.modelo303.export_to_boe,state:0
+msgid "unknown"
+msgstr "unknown"
+
+#. module: l10n_es_aeat_modelo303
+#: selection:l10n.es.aeat.modelo303.report,period:0
+msgid "June"
+msgstr "Junio"
+
+#. module: l10n_es_aeat_modelo303
+#: view:l10n.es.aeat.modelo303.report:0
+msgid "AEAT 303 reports"
+msgstr "Informes AEAT 303"
+
+#. module: l10n_es_aeat_modelo303
+#: selection:l10n.es.aeat.modelo303.report,period:0
+msgid "November"
+msgstr "Noviembre"
+
+#. module: l10n_es_aeat_modelo303
+#: field:l10n.es.aeat.modelo303,date:0
+#: field:l10n.es.aeat.modelo303.template,date:0
+msgid "Fecha entrada en vigor"
+msgstr "Fecha entrada en vigor"
+
+#. module: l10n_es_aeat_modelo303
+#: selection:l10n.es.aeat.modelo303.report,period:0
+msgid "October"
+msgstr "Octubre"
+
+#. module: l10n_es_aeat_modelo303
+#: selection:l10n.es.aeat.modelo303.report,period:0
+msgid "January"
+msgstr "Enero"
+
+#. module: l10n_es_aeat_modelo303
+#: selection:l10n.es.aeat.modelo303.report,state:0
+msgid "Processed"
+msgstr "Procesado"
+
+#. module: l10n_es_aeat_modelo303
+#: selection:l10n.es.aeat.modelo303.report,period:0
+msgid "Third quarter"
+msgstr "Tercer trimestre"
+
+#. module: l10n_es_aeat_modelo303
+#: code:addons/l10n_es_aeat_modelo303/wizard/wizard_chart_update.py:387
+#, python-format
+msgid "Error"
+msgstr "Error"
+
+#. module: l10n_es_aeat_modelo303
+#: model:ir.model,name:l10n_es_aeat_modelo303.model_l10n_es_aeat_modelo303_casilla_template
+msgid "Casillas AEAT modelo 303 template"
+msgstr "Plantilla Casillas AEAT modelo 303"
+
+#. module: l10n_es_aeat_modelo303
+#: field:l10n.es.aeat.modelo303.report,representative_vat:0
+msgid "L.R. VAT number"
+msgstr "CIF/NIF R.L."
+
+#. module: l10n_es_aeat_modelo303
+#: field:l10n.es.aeat.modelo303.report,period_end_id:0
+msgid "Period end"
+msgstr "Periodo final"
+
+#. module: l10n_es_aeat_modelo303
+#: field:l10n.es.aeat.modelo303.report,type:0
+msgid "Statement Type"
+msgstr "Tipo de instrucción"
+
+#. module: l10n_es_aeat_modelo303
+#: field:l10n.es.aeat.modelo303.report,period:0
+msgid "Period"
+msgstr "Periodo"
+
+#. module: l10n_es_aeat_modelo303
+#: field:l10n.es.aeat.modelo303.report,company_vat:0
+msgid "VAT number"
+msgstr "CIF/NIF"
+
+#. module: l10n_es_aeat_modelo303
+#: field:l10n.es.aeat.modelo303.report,fiscalyear_id:0
+msgid "Fiscal year"
+msgstr "Ejercicio"
+
+#. module: l10n_es_aeat_modelo303
+#: selection:l10n.es.aeat.modelo303.report,state:0
+msgid "Done"
+msgstr "Listo"
+
+#. module: l10n_es_aeat_modelo303
+#: model:ir.actions.act_window,name:l10n_es_aeat_modelo303.action_l10n_es_aeat_modelo303_casilla_template_tree
+msgid "Template Casillas AEAT"
+msgstr "Plantillas Casillas AEAT"
+
+#. module: l10n_es_aeat_modelo303
+#: model:ir.actions.act_window,name:l10n_es_aeat_modelo303.action_l10n_es_aeat_modelo303_report
+msgid "AEAT model 303"
+msgstr "Modelo AEAT 303"
+
+#. module: l10n_es_aeat_modelo303
+#: field:wizard.update.charts.accounts.modelo303,update_modelo303_id:0
+msgid "Modelo303 to update"
+msgstr "Modelo303 a actualizar"
+
+#. module: l10n_es_aeat_modelo303
+#: selection:l10n.es.aeat.modelo303.report,period:0
+msgid "Fourth quarter"
+msgstr "Cuarto trimestre"
+
+#. module: l10n_es_aeat_modelo303
+#: view:l10n.es.aeat.modelo303.casilla:0
+#: view:l10n.es.aeat.modelo303.casilla.template:0
+msgid "Definición de casillas AEAT"
+msgstr "Definición de casillas AEAT"
+
+#. module: l10n_es_aeat_modelo303
+#: code:addons/l10n_es_aeat_modelo303/modelo303.py:348
+#, python-format
+msgid "Inscrito en el Registro de devolución mensual (Art. 30 RIVA). No está permitido para periodos 1T,2T,3T o 4T."
+msgstr "Inscrito en el Registro de devolución mensual (Art. 30 RIVA). No está permitido para periodos 1T,2T,3T o 4T."
+
+#. module: l10n_es_aeat_modelo303
+#: field:l10n.es.aeat.modelo303.report,valor_casilla_ids:0
+msgid "Valores Casillas"
+msgstr "Valores Casillas"
+
+#. module: l10n_es_aeat_modelo303
+#: field:l10n.es.aeat.modelo303.report,devolucion_mensual:0
+msgid "Devolución Mensual"
+msgstr "Devolución Mensual"
+
+#. module: l10n_es_aeat_modelo303
+#: code:addons/l10n_es_aeat_modelo303/wizard/wizard_chart_update.py:387
+#, python-format
+msgid "One or more errors detected!\n"
+"\n"
+"%s"
+msgstr "Uno o mas errores detectados!\n"
+"\n"
+"%s"
+
+#. module: l10n_es_aeat_modelo303
+#: selection:l10n.es.aeat.modelo303.report,type:0
+msgid "Complementary"
+msgstr "Complementaria"
+
+#. module: l10n_es_aeat_modelo303
+#: selection:l10n.es.aeat.modelo303.report,period:0
+msgid "May"
+msgstr "Mayo"
+
+#. module: l10n_es_aeat_modelo303
+#: field:wizard.update.charts.accounts.casilla,type:0
+#: field:wizard.update.charts.accounts.modelo303,type:0
+msgid "Type"
+msgstr "Tipo"
+
+#. module: l10n_es_aeat_modelo303
+#: field:l10n.es.aeat.modelo303.report,cuenta_ingreso_id:0
+msgid "CCC Ingreso"
+msgstr "CCC Ingreso"
+
+#. module: l10n_es_aeat_modelo303
+#: field:l10n.es.aeat.modelo303.casilla,modelo303_id:0
+#: field:l10n.es.aeat.modelo303.casilla.template,modelo303_id:0
+#: field:l10n.es.aeat.modelo303.report,modelo303_id:0
+#: view:wizard.update.charts.accounts:0
+msgid "Modelo 303"
+msgstr "Modelo 303"
+
+#. module: l10n_es_aeat_modelo303
+#: help:l10n.es.aeat.modelo303.report,representative_vat:0
+msgid "Legal Representative VAT number."
+msgstr "CIF/NIF representante legal."
+
+#. module: l10n_es_aeat_modelo303
+#: field:l10n.es.aeat.modelo303.export_to_boe,name:0
+msgid "File name"
+msgstr "Nombre archivo"
+
+#. module: l10n_es_aeat_modelo303
+#: field:wizard.update.charts.accounts,new_casillas:0
+msgid "New Casillas"
+msgstr "Nuevas Casillas"
+
+#. module: l10n_es_aeat_modelo303
+#: field:wizard.update.charts.accounts,new_modelos303:0
+msgid "New Modelos303"
+msgstr "Nuevos Modelos 303"
+
+#. module: l10n_es_aeat_modelo303
+#: selection:l10n.es.aeat.modelo303.report,period:0
+msgid "February"
+msgstr "Febrero"
+
+#. module: l10n_es_aeat_modelo303
+#: field:wizard.update.charts.accounts.casilla,update_chart_wizard_id:0
+#: field:wizard.update.charts.accounts.modelo303,update_chart_wizard_id:0
+msgid "Update chart wizard"
+msgstr "Asistente de actualización"
+
+#. module: l10n_es_aeat_modelo303
+#: selection:l10n.es.aeat.modelo303.report,period:0
+msgid "April"
+msgstr "Abril"
+
+#. module: l10n_es_aeat_modelo303
+#: field:wizard.update.charts.accounts.casilla,update_casilla_id:0
+msgid "Casilla to update"
+msgstr "Casilla a actualizar"
+
+#. module: l10n_es_aeat_modelo303
+#: help:l10n.es.aeat.modelo303.report,sujeto_a_cdc:0
+msgid "¿Ha optado por el régimen especial del criterio de Caja (art. 163 undecies LIVA)?"
+msgstr "¿Ha optado por el régimen especial del criterio de Caja (art. 163 undecies LIVA)?"
+
+#. module: l10n_es_aeat_modelo303
+#: model:ir.actions.act_window,help:l10n_es_aeat_modelo303.action_l10n_es_aeat_modelo303_report
+msgid "Create and query AEAT Model 303 reports"
+msgstr "Crea y consulta declaración AEAT del modelo 303"
+
+#. module: l10n_es_aeat_modelo303
+#: selection:l10n.es.aeat.modelo303.report,support_type:0
+msgid "Telematics"
+msgstr "Telematico"
+
+#. module: l10n_es_aeat_modelo303
+#: model:ir.actions.act_window,name:l10n_es_aeat_modelo303.action_l10n_es_aeat_modelo303_casilla_tree
+#: model:ir.ui.menu,name:l10n_es_aeat_modelo303.menu_l10n_es_aeat_modelo303_casilla
+#: model:ir.ui.menu,name:l10n_es_aeat_modelo303.menu_l10n_es_aeat_modelo303_casilla_template
+#: view:l10n.es.aeat.modelo303.casilla:0
+#: view:l10n.es.aeat.modelo303.casilla.template:0
+#: view:wizard.update.charts.accounts:0
+msgid "Casillas AEAT"
+msgstr "Casillas AEAT"
+
+#. module: l10n_es_aeat_modelo303
+#: selection:l10n.es.aeat.modelo303.report,period:0
+msgid "Second quarter"
+msgstr "Segundo trimestre"
+
+#. module: l10n_es_aeat_modelo303
+#: model:ir.ui.menu,name:l10n_es_aeat_modelo303.menu_aeat_modelo303_report
+msgid "AEAT 303 model"
+msgstr "Declaración AEAT 303"
+
+#. module: l10n_es_aeat_modelo303
+#: model:ir.model,name:l10n_es_aeat_modelo303.model_l10n_es_aeat_modelo303_export_to_boe
+msgid "Export Report to BOE Format"
+msgstr "Exportar a formato BOE"
+
+#. module: l10n_es_aeat_modelo303
+#: help:l10n.es.aeat.modelo303.report,destinatario_operaciones_cdc:0
+msgid "¿Es destinatario de operaciones a las que se aplique el régimen especial del criterio de caja?"
+msgstr "¿Es destinatario de operaciones a las que se aplique el régimen especial del criterio de caja?"
+
+#. module: l10n_es_aeat_modelo303
+#: model:ir.model,name:l10n_es_aeat_modelo303.model_wizard_update_charts_accounts
+msgid "wizard.update.charts.accounts"
+msgstr "wizard.update.charts.accounts"
+
+#. module: l10n_es_aeat_modelo303
+#: field:wizard.update.charts.accounts.casilla,casilla_id:0
+#: field:wizard.update.charts.accounts.modelo303,modelo303_id:0
+msgid "Casillas template"
+msgstr "Plantilla de Casilla"
+
+#. module: l10n_es_aeat_modelo303
+#: field:l10n.es.aeat.modelo303.export_to_boe,data:0
+msgid "File"
+msgstr "Archivo"
+
+#. module: l10n_es_aeat_modelo303
+#: sql_constraint:l10n.es.aeat.modelo303.casilla:0
+#: sql_constraint:l10n.es.aeat.modelo303.casilla.template:0
+msgid "Las casillas deben ser unicas por modelo."
+msgstr "Las casillas deben ser unicas por modelo."
