@@ -15,5 +15,14 @@
 #    along with this program.  If not, see http://www.gnu.org/licenses/.
 #
 ##############################################################################
-from . import wizard
 from . import modelo303
+from . import wizard
+
+import logging
+from pprint import pformat
+_logger = logging.getLogger(__name__)
+
+def mod303_post_init_hook(cr, registry):
+    _logger.info('Called mod303_post_init_hook with cr = ' + pformat(cr))
+    _logger.info('Called mod303_post_init_hook with registry = ' + pformat(registry))
+

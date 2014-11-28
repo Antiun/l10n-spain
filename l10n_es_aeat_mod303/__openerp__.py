@@ -41,14 +41,15 @@
         "account",
         "l10n_es",
         "l10n_es_aeat",
-        "account_chart_update"
+        # "account_chart_update"
     ],
     "data" : [
         "wizard/export_modelo303_to_boe.xml",
-        "wizard/wizard_chart_update_view.xml",
+        # "wizard/wizard_chart_update_view.xml",
         "modelo303_view.xml",
         "modelo303_casillas.xml",
         "security/ir.model.access.csv",
     ],
     "installable" : True,
+    "post_init_hook" : "mod303_post_init_hook",
 }

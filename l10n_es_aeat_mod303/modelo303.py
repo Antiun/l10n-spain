@@ -22,7 +22,7 @@ from dateutil.relativedelta import relativedelta
 from openerp.osv import orm, fields
 from openerp.tools.translate import _
 from openerp.tools.safe_eval import safe_eval
-from openerp.addons.account.report.account_tax_report import tax_report 
+from openerp.addons.account.report.report_vat import tax_report
 
 
 ###### 303 templates ######
@@ -30,7 +30,7 @@ from openerp.addons.account.report.account_tax_report import tax_report
 class l10n_es_aeat_modelo303_template(orm.Model):
     _name = "l10n.es.aeat.modelo303.template"
     _description = "AEAT modelo 303 template"
-    
+
     _columns = {
         'name': fields.char('Nombre', size=256, required=True),
         'date': fields.date("Fecha entrada en vigor"),
@@ -55,9 +55,9 @@ class l10n_es_aeat_modelo303_casilla_template(orm.Model):
     _defaults = {
         'evaluate_as': '',
     }
-    
+
     _sql_constraints = [('casillas_aeat_code_fiscalyear_unique', 'unique(code, modelo303_id)', 'Las casillas deben ser unicas por modelo.')]
-        
+
 l10n_es_aeat_modelo303_casilla_template()
 
 ###### 303 objects #######
@@ -65,7 +65,7 @@ l10n_es_aeat_modelo303_casilla_template()
 class l10n_es_aeat_modelo303(orm.Model):
     _name = "l10n.es.aeat.modelo303"
     _description = "AEAT modelo 303"
-    
+
     _columns = {
         'name': fields.char('Nombre', size=256, required=True),
         'date': fields.date("Fecha entrada en vigor"),
@@ -90,7 +90,7 @@ class l10n_es_aeat_modelo303_casilla(orm.Model):
     _defaults = {
         'evaluate_as': '',
     }
-    
+
     _sql_constraints = [('casillas_aeat_code_fiscalyear_unique', 'unique(code, modelo303_id)', 'Las casillas deben ser unicas por modelo.')]
 
     def name_get(self, cr, uid, ids, context=None):
@@ -103,7 +103,7 @@ class l10n_es_aeat_modelo303_casilla(orm.Model):
         reads = self.read(cr, uid, ids, ['name','code', 'evaluate_as'], context, load='_classic_write')
         return [(x['id'], x['name'] + (x['evaluate_as'] and (" [" + x['evaluate_as'] + ']') or '')) \
                for x in reads]
-        
+
     def get_dependency_codes(self, cr, uid, ids, context=None):
         result = {}
         casilla_code_re = re.compile("c([0-9a-zA-Z]+)")
@@ -113,7 +113,7 @@ class l10n_es_aeat_modelo303_casilla(orm.Model):
                 dep_codes = casilla_code_re.findall(casilla.evaluate_as)
             result[casilla.id] = dep_codes
         return result
-        
+
 l10n_es_aeat_modelo303_casilla()
 
 class l10n_es_aeat_modelo303_valor_casilla(orm.Model):
@@ -142,14 +142,14 @@ class l10n_es_aeat_modelo303_report(orm.Model):
         fiscalyear_obj = self.pool.get("account.fiscalyear")
         today = datetime.today().date()
         return fiscalyear_obj.search(cr, uid,
-                                     ['&', ('date_start', '<=', today), 
+                                     ['&', ('date_start', '<=', today),
                                       ('date_stop', '>=', today)])[0] or False
-        
-        
+
+
     def _get_modelo303_id(self, cr, uid, context=None):
         modelo303_obj = self.pool.get("l10n.es.aeat.modelo303")
         fiscalyear_obj = self.pool.get("account.fiscalyear")
-        
+
         mod303_id = None
         mod303_date = None
         fiscalyear_ids = self._get_fiscalyear_id(cr, uid, context)
@@ -161,8 +161,8 @@ class l10n_es_aeat_modelo303_report(orm.Model):
                 for m303 in modelo303_obj.browse(cr, uid, mod303_ids):
                     if not mod303_date or m303.date >= mod303_date:
                         mod303_id = m303.id
-                        mod303_date = m303.date 
-                    
+                        mod303_date = m303.date
+
         return mod303_id or False
 
     def _get_period(self, cr, uid, ids, context=None):
@@ -173,7 +173,7 @@ class l10n_es_aeat_modelo303_report(orm.Model):
             if mod303.period_end_id:
                 if mod303.period_start_id.date_start > mod303.period_end_id.date_start:
                     raise orm.except_orm('', _('El periodo inicial debe ser inferior o igual periodo final.'))
-            
+
                 if mod303.period_start_id.id <> mod303.period_end_id.id:
                     account_period_id.append(mod303.period_end_id.id)
                     account_period_id += period_obj.search(cr, uid,
@@ -183,7 +183,7 @@ class l10n_es_aeat_modelo303_report(orm.Model):
                                  ('special', '=', False),],
                                 context=context)
         return account_period_id
-    
+
     def _get_valores_casillas(self, cr, uid, ids, modelo303_id, default_values=None, context=None):
         if default_values == None:
             default_values = {}
@@ -194,7 +194,7 @@ class l10n_es_aeat_modelo303_report(orm.Model):
         casillas_ids = casillas_obj.search(cr, uid,
                                            [('modelo303_id', '=', modelo303_id)],
                                            context=context)
-        
+
         # Calculamos el valor de las casillas desde los impuestos
         for c in casillas_obj.browse(cr, uid, casillas_ids):
             if c.code in default_values:
@@ -211,14 +211,14 @@ class l10n_es_aeat_modelo303_report(orm.Model):
         for c in casillas_obj.browse(cr, uid, casillas_ids):
             if c.evaluate_as:
                 self._calcular_casilla(cr, uid, modelo303_id, c.code, casillas, default_values, context)
-        
+
         return casillas
-    
+
     def _calcular_casilla(self, cr, uid, modelo303_id, code, valores_casillas, default_values=None, context=None):
-        
+
         if default_values == None:
             default_values = {}
-        
+
         casillas_obj = self.pool.get('l10n.es.aeat.modelo303.casilla')
         casillas_id = casillas_obj.search(cr, uid, [('modelo303_id', '=', modelo303_id),
                                                    ('code', '=', code)])
@@ -231,7 +231,7 @@ class l10n_es_aeat_modelo303_report(orm.Model):
                 for dep_code in dep_codes:
                     if dep_code not in valores_casillas or valores_casillas[dep_code] == 0 and dep_code != code:
                         self._calcular_casilla(cr, uid, modelo303_id, dep_code, valores_casillas, default_values, context)
-                
+
                 if casilla.code in default_values:
                     valores_casillas[casilla.code] = default_values[casilla.code]
                 else:
@@ -282,25 +282,25 @@ class l10n_es_aeat_modelo303_report(orm.Model):
         'fiscalyear_id': _get_fiscalyear_id,
         'modelo303_id': _get_modelo303_id
     }
-    
+
 
     def calculate(self, cr, uid, ids, context=None):
         casilla_obj = self.pool.get('l10n.es.aeat.modelo303.casilla')
         valor_casilla_obj = self.pool.get('l10n.es.aeat.modelo303.valor.casilla')
         for report303 in self.browse(cr, uid, ids, context=context):
-            
+
             # Eliminamos los valores anteriores
             valor_casillas_ids = [valor_casilla.id for valor_casilla in report303.valor_casilla_ids]
             if valor_casillas_ids:
                 valor_casilla_obj.unlink(cr, uid, valor_casillas_ids)
-            
+
             # Valores por defecto
             default_values = {}
             casilla_ids = casilla_obj.search(cr, uid, [('modelo303_id','=', report303.modelo303_id.id)])
             for c in casilla_obj.browse(cr, uid, casilla_ids):
                 if c.default_value and not c.tax_code_ids and not c.evaluate_as:
                     default_values[c.code] = c.default_value
-            
+
             valores_casillas = self._get_valores_casillas(cr, uid, ids,
                                                           report303.modelo303_id.id,
                                                           default_values=default_values,
@@ -319,11 +319,11 @@ class l10n_es_aeat_modelo303_report(orm.Model):
                     }
                     valor_casilla_obj.create(cr, uid, valor_casilla)
         return True
-    
+
     def button_calculate_formulas(self, cr, uid, ids, context=None):
         valor_casilla_obj = self.pool.get('l10n.es.aeat.modelo303.valor.casilla')
         for report303 in self.browse(cr, uid, ids, context=context):
-            
+
             default_values = {}
             for casilla_valor in report303.valor_casilla_ids:
                 if not casilla_valor.casilla_id.evaluate_as:
@@ -336,7 +336,7 @@ class l10n_es_aeat_modelo303_report(orm.Model):
                 if casilla_valor.casilla_id.evaluate_as:
                     value = {'valor': valores_casillas[casilla_valor.code]}
                     valor_casilla_obj.write(cr, uid, [casilla_valor.id], value)
-                
+
         return True
 
     def button_confirm(self, cr, uid, ids, context=None):
@@ -349,3 +349,4 @@ class l10n_es_aeat_modelo303_report(orm.Model):
             raise orm.except_orm("", msg)
         return super(l10n_es_aeat_modelo303_report, self).button_confirm(cr, uid,
                                                         ids, context=context)
+

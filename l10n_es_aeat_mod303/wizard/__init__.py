@@ -16,4 +16,4 @@
 #
 ##############################################################################
 from . import export_modelo303_to_boe
-from . import wizard_chart_update
+# from . import wizard_chart_update
