@@ -23,7 +23,7 @@
 ##############################################################################
 
 {
-    "name": "Point of sale simplified invoice",
+    "name": "Punto de venta con factura simplificada",
     "version": "1.0",
     "author": "Antiun Ingeniería S.L., "
               "Serv. Tecnol. Avanzados - Pedro M. Baeza, "
@@ -36,13 +36,18 @@
 Punto de venta con factura simplificada
 ================================
 
-El modulo añade a la factura del terminal punto de venta el
-logo de la empresa adaptado, nif de la empresa y los datos
-nombre, nif y dirección del cliente a la factura simplificada.
+Adapta el terminal punto de venta a la legislación Española.
+Adapta el ticket de venta a factura simplificada,
+añadiendo el logo de la empresa y el NIF. E incluye los datos
+del cliente (nombre, NIF y dirección).
+Por último chequea que no se realice una factura simplificada con valor
+superior a 400 euros.
+
     """,
     "depends": ['base', 'point_of_sale'],
     'data': [
         "views/pos_template.xml",
+        "views/l10n_es_pos_simplified_invoice_report_receipt_report.xml",
     ],
     "qweb": [
         'static/src/xml/pos.xml',
