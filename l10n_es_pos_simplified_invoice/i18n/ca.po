@@ -193,6 +193,13 @@ msgstr "Seleccionar cliente"
 
 #. module: l10n_es_pos_simplified_invoice
 #. openerp-web
+#: code:addons/l10n_es_pos_simplified_invoice/static/src/js/models.js:22
+#, python-format
+msgid "Simplified invoice "
+msgstr "FActura simplificada"
+
+#. module: l10n_es_pos_simplified_invoice
+#. openerp-web
 #: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:123
 #: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:124
 #, python-format

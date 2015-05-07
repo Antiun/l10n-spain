@@ -37,7 +37,7 @@ Punto de venta con factura simplificada
 ================================
 
 El modulo añade a la factura del terminal punto de venta el
-logo de la empresa adaptado, y los datos
+logo de la empresa adaptado, nif de la empresa y los datos
 nombre, nif y dirección del cliente a la factura simplificada.
     """,
     "depends": ['base', 'point_of_sale'],
