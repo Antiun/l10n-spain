@@ -33,11 +33,12 @@
     "license": "AGPL-3",
     "category": "Point Of Sale",
     "description": """
-Point of sale simplified invoice
+Punto de venta con factura simplificada
 ================================
 
-This module adapts the ticket of the POS to the Spanish rule.
-Add in tikect the logo of the company and user data.
+El modulo añade a la factura del terminal punto de venta el
+logo de la empresa adaptado, y los datos
+nombre, nif y dirección del cliente a la factura simplificada.
     """,
     "depends": ['base', 'point_of_sale'],
     'data': [
