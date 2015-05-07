@@ -17,7 +17,7 @@ msgstr ""
 
 #. module: l10n_es_pos_simplified_invoice
 #. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:37
+#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:38
 #, python-format
 msgid "% discount"
 msgstr "% descuento"
@@ -31,7 +31,8 @@ msgstr "Es necesario el nombre del cliente"
 
 #. module: l10n_es_pos_simplified_invoice
 #. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:16
+#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:17
+#: view:website:point_of_sale.report_receipt
 #, python-format
 msgid "Address:"
 msgstr "Dirección:"
@@ -57,7 +58,7 @@ msgstr "Atras"
 
 #. module: l10n_es_pos_simplified_invoice
 #. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:156
+#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:157
 #, python-format
 msgid "Barcode"
 msgstr "Código de barras"
@@ -85,7 +86,7 @@ msgstr "Cambiar de cliente"
 
 #. module: l10n_es_pos_simplified_invoice
 #. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:91
+#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:92
 #, python-format
 msgid "Change:"
 msgstr "Cambio:"
@@ -114,7 +115,7 @@ msgstr "No se puede leer la imagen"
 
 #. module: l10n_es_pos_simplified_invoice
 #. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:135
+#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:136
 #, python-format
 msgid "Country"
 msgstr "País"
@@ -122,6 +123,7 @@ msgstr "País"
 #. module: l10n_es_pos_simplified_invoice
 #. openerp-web
 #: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:14
+#: view:website:point_of_sale.report_receipt
 #, python-format
 msgid "Customer data"
 msgstr "Datos cliente"
@@ -196,6 +198,7 @@ msgstr "Nombre"
 #. module: l10n_es_pos_simplified_invoice
 #. openerp-web
 #: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:15
+#: view:website:point_of_sale.report_receipt
 #, python-format
 msgid "Name:"
 msgstr "Nombre:"
@@ -235,7 +238,7 @@ msgstr "Modo de pago"
 
 #. module: l10n_es_pos_simplified_invoice
 #. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:152
+#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:153
 #, python-format
 msgid "Phone"
 msgstr "Teléfono"
@@ -366,7 +369,7 @@ msgstr "Total"
 
 #. module: l10n_es_pos_simplified_invoice
 #. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:72
+#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:73
 #, python-format
 msgid "Total:"
 msgstr "Total:"
@@ -381,6 +384,7 @@ msgstr "Formato de fichero no soportado"
 #. module: l10n_es_pos_simplified_invoice
 #. openerp-web
 #: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:16
+#: view:website:point_of_sale.report_receipt
 #, python-format
 msgid "VAT:"
 msgstr "NIF:"
