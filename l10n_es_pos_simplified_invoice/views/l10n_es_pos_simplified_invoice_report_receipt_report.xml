@@ -13,11 +13,6 @@
                         <div t-field="o.partner_id"
                             t-field-options='{"widget": "contact", "fields": ["address", "name", "phone", "fax"], "no_marker": true}'/>
                         Seller: <span t-field="o.user_id"/><br/>
-                        <t t-if="order.attributes.client">
-                        Customer data<br />
-                        Name: <t t-esc="order.attributes.client ? order.attributes.client.name : ''"/><br />
-                        VAT: <t t-esc="order.attributes.client ? order.attributes.client.vat : ''"/><br />
-                        Address: <t t-esc="order.attributes.client ? order.attributes.client.street : ''"/><br />
                         </t>
                         Date: <span t-field="o.date_order"/><br/>
                     </div>
