@@ -2,18 +2,21 @@
 	<templates id="template" >
 	    <t t-name="PosTicket_l10n_es">
 	        <div class="pos-sale-ticket">
-	            
+
 	            <div class="pos-center-align"><t t-esc="new Date().toString(Date.CultureInfo.formatPatterns.shortDate + ' ' +
-	                Date.CultureInfo.formatPatterns.longTime)"/> <t t-esc="order.get('name')"/></div>
+	                Date.CultureInfo.formatPatterns.longTime)"/><br/><t t-esc="order.get('name')"/></div>
 	            <br />
 	            <img t-att-src="order.pos.company_logo_base64" t-attf-class="desaturate"/><br />
 	            <t t-esc="widget.pos.company.name"/><br />
+	            NIF: <t t-esc="widget.pos.company.vat || ''"/><br />
 	            Phone: <t t-esc="widget.pos.company.phone || ''"/><br />
-	            Vendedor: <t t-esc="widget.pos.cashier ? widget.pos.cashier.name : widget.pos.user.name"/><br />
-	            Cliente: <t t-esc="order.attributes.client ? order.attributes.client.name : ''"/><br />
-	            NIF cliente: <t t-esc="order.attributes.client ? order.attributes.client.vat : ''"/><br />
-	            Dirección del cliente: <t t-esc="order.attributes.client ? order.attributes.client.street : ''"/><br />
-	            <!--Shop: <t t-esc="widget.pos.shop.name"/><br />-->
+	            Seller: <t t-esc="widget.pos.cashier ? widget.pos.cashier.name : widget.pos.user.name"/><br />
+	            <t t-if="order.attributes.client">
+	            Customer data<br />
+	            Name: <t t-esc="order.attributes.client ? order.attributes.client.name : ''"/><br />
+	            VAT: <t t-esc="order.attributes.client ? order.attributes.client.vat : ''"/><br />
+	            Address: <t t-esc="order.attributes.client ? order.attributes.client.street : ''"/><br />
+	           	</t>
 	            <br />
 	            <t t-if="widget.pos.config.receipt_header">
 	                <div style='text-align:center'>
@@ -108,7 +111,7 @@
                 <t t-if='partner.id'>
                     <img t-att-src='widget.partner_icon_url(partner.id)' />
                 </t>
-                <input type='file' class='image-uploader'></input>   
+                <input type='file' class='image-uploader'></input>
             </div>
             <input class='detail client-name' name='name' t-att-value='partner.name' placeholder='Name'></input>
             <div class='edit-buttons'>
@@ -134,7 +137,7 @@
                         <select class='detail client-address-country' name='country_id'>
                             <option value=''>None</option>
                             <t t-foreach='widget.pos.countries' t-as='country'>
-                                <option t-att-value='country.id' t-att-selected="partner.country_id ? ((country.id === partner.country_id[0]) or (!partner.country_id and country.name === 'España') ? true : undefined) : undefined"> 
+                                <option t-att-value='country.id' t-att-selected="partner.country_id ? ((country.id === partner.country_id[0]) or (!partner.country_id and country.name === 'España') ? true : undefined) : undefined">
                                     <t t-esc='country.name'/>
                                 </option>
                             </t>

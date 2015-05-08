@@ -23,23 +23,31 @@
 ##############################################################################
 
 {
-    "name": "Point of sale simplified invoice",
+    "name": "Punto de venta con factura simplificada",
     "version": "1.0",
-    'author': 'Antiun Ingenieria S.L.',
-    'maintainer': 'Antiun Ingenieria S.L.',
-    'website': 'http://www.antiun.com',
-    'license': 'AGPL-3',
+    "author": "Antiun Ingeniería S.L., "
+              "Serv. Tecnol. Avanzados - Pedro M. Baeza, "
+              "Spanish Localization Team, "
+              "Odoo Community Association (OCA)",
+    "website": "http://www.antiun.com",
+    "license": "AGPL-3",
     "category": "Point Of Sale",
     "description": """
-Point of sale simplified invoice
-=====================
+Punto de venta con factura simplificada
+================================
 
-This module adapts the ticket of the POS to the Spanish rule.
-Add in tikect the logo of the company and user data.
+Adapta el terminal punto de venta a la legislación Española.
+Adapta el ticket de venta a factura simplificada,
+añadiendo el logo de la empresa y el NIF. E incluye los datos
+del cliente (nombre, NIF y dirección).
+Por último chequea que no se realice una factura simplificada con valor
+superior a 400 euros.
+
     """,
     "depends": ['base', 'point_of_sale'],
     'data': [
         "views/pos_template.xml",
+        "views/l10n_es_pos_simplified_invoice_report_receipt_report.xml",
     ],
     "qweb": [
         'static/src/xml/pos.xml',
