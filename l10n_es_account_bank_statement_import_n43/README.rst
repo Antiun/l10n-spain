@@ -14,6 +14,10 @@ Para instalar este módulo, es necesario tener disponible el módulo
 *account_bank_statement_import* del repositorio
 https://github.com/OCA/bank-statement-import
 
+Igualmente, para poder seleccionar un diario y que la importación pueda
+llevarse a cabo sin ningún error, es necesario instalar el módulo
+*account_bank_statement_import_qif* del mismo repositorio.
+
 Configuración
 =============
 
@@ -23,13 +27,16 @@ Uso
 ===
 
 Vaya a Contabilidad > Extractos bancarios > Importar extracto bancario,
-seleccione el archivo Norma 43 a importar, y pulse en 'Importar'
+seleccione el archivo Norma 43 a importar, el diario en el que registrarlo,
+y pulse en 'Importar'.
 
 Incidencias conocidas / Hoja de ruta
 ====================================
 
 * Reconocimiento de partners para otros bancos distintos del Santander o
   CaixaBank.
+* Es necesario el módulo para importar archivos QIF para poder seleccionar el
+  diario en el que hacer la importación y que no dé error.
 
 Credits
 =======

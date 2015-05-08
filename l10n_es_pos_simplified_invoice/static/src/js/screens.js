@@ -35,21 +35,21 @@ function l10n_es_pos_simplified_invoice_screens(instance, module){ //module is i
             //
             // The problem is that in chrome the print() is asynchronous and doesn't
             // execute until all rpc are finished. So it conflicts with the rpc used
-            // to send the orders to the backend, and the user is able to go to the next 
-            // screen before the printing dialog is opened. The problem is that what's 
+            // to send the orders to the backend, and the user is able to go to the next
+            // screen before the printing dialog is opened. The problem is that what's
             // printed is whatever is in the page when the dialog is opened and not when it's called,
-            // and so you end up printing the product list instead of the receipt... 
+            // and so you end up printing the product list instead of the receipt...
             //
             // Fixing this would need a re-architecturing
             // of the code to postpone sending of orders after printing.
             //
             // But since the print dialog also blocks the other asynchronous calls, the
-            // button enabling in the setTimeout() is blocked until the printing dialog is 
+            // button enabling in the setTimeout() is blocked until the printing dialog is
             // closed. But the timeout has to be big enough or else it doesn't work
             // 2 seconds is the same as the default timeout for sending orders and so the dialog
-            // should have appeared before the timeout... so yeah that's not ultra reliable. 
+            // should have appeared before the timeout... so yeah that's not ultra reliable.
 
-            finish_button.set_disabled(true);   
+            finish_button.set_disabled(true);
             setTimeout(function(){
                 finish_button.set_disabled(false);
             }, 2000);
@@ -112,7 +112,7 @@ function l10n_es_pos_simplified_invoice_screens(instance, module){ //module is i
 
             var partners = this.pos.db.get_partners_sorted(1000);
             this.render_list(partners);
-            
+
             this.reload_partners();
 
             if( this.old_client ){
@@ -259,7 +259,7 @@ function l10n_es_pos_simplified_invoice_screens(instance, module){ //module is i
         // save was successfull.
         save_client_details: function(partner) {
             var self = this;
-            
+
             var fields = {}
             this.$('.client-details-contents .detail').each(function(idx,el){
                 fields[el.name] = el.value;
@@ -271,14 +271,14 @@ function l10n_es_pos_simplified_invoice_screens(instance, module){ //module is i
                 });
                 return;
             }
-            
+
             if (this.uploaded_picture) {
                 fields.image = this.uploaded_picture;
             }
 
             fields.id           = partner.id || false;
             fields.country_id   = fields.country_id || false;
-            fields.ean13        = fields.ean13 ? this.pos.barcode_reader.sanitize_ean(fields.ean13) : false; 
+            fields.ean13        = fields.ean13 ? this.pos.barcode_reader.sanitize_ean(fields.ean13) : false;
 
             new instance.web.Model('res.partner').call('create_from_ui',[fields]).then(function(partner_id){
                 self.saved_client_details(partner_id);
@@ -290,7 +290,7 @@ function l10n_es_pos_simplified_invoice_screens(instance, module){ //module is i
                 });
             });
         },
-        
+
         // what happens when we've just pushed modifications for a partner of id partner_id
         saved_client_details: function(partner_id){
             var self = this;
@@ -302,7 +302,7 @@ function l10n_es_pos_simplified_invoice_screens(instance, module){ //module is i
                     self.display_client_details('show',partner);
                 } else {
                     // should never happen, because create_from_ui must return the id of the partner it
-                    // has created, and reload_partner() must have loaded the newly created partner. 
+                    // has created, and reload_partner() must have loaded the newly created partner.
                     self.display_client_details('hide');
                 }
             });
@@ -347,7 +347,7 @@ function l10n_es_pos_simplified_invoice_screens(instance, module){ //module is i
                 });
                 return;
             }
-            
+
             var reader = new FileReader();
             reader.onload = function(event){
                 var dataurl = event.target.result;
@@ -364,13 +364,13 @@ function l10n_es_pos_simplified_invoice_screens(instance, module){ //module is i
             reader.readAsDataURL(file);
         },
 
-        // This fetches partner changes on the server, and in case of changes, 
+        // This fetches partner changes on the server, and in case of changes,
         // rerenders the affected views
         reload_partners: function(){
             var self = this;
             return this.pos.load_new_partners().then(function(){
                 self.render_list(self.pos.db.get_partners_sorted(1000));
-                
+
                 // update the currently assigned client if it has been changed in db.
                 var curr_client = self.pos.get_order().get_client();
                 if (curr_client) {
@@ -391,9 +391,9 @@ function l10n_es_pos_simplified_invoice_screens(instance, module){ //module is i
             var scroll   = parent.scrollTop();
             var height   = contents.height();
 
-            contents.off('click','.button.edit'); 
-            contents.off('click','.button.save'); 
-            contents.off('click','.button.undo'); 
+            contents.off('click','.button.edit');
+            contents.off('click','.button.save');
+            contents.off('click','.button.undo');
             contents.on('click','.button.edit',function(){ self.edit_client_details(partner); });
             contents.on('click','.button.save',function(){ self.save_client_details(partner); });
             contents.on('click','.button.undo',function(){ self.undo_client_details(partner); });
@@ -450,6 +450,399 @@ function l10n_es_pos_simplified_invoice_screens(instance, module){ //module is i
         },
         close: function(){
             this._super();
+        },
+    });
+
+    module.PaymentScreenWidget = module.ScreenWidget.extend({
+        template: 'PaymentScreenWidget',
+        back_screen: 'products',
+        next_screen: 'receipt',
+        init: function(parent, options) {
+            var self = this;
+            this._super(parent,options);
+
+            this.pos.bind('change:selectedOrder',function(){
+                    this.bind_events();
+                    this.renderElement();
+                },this);
+
+            this.bind_events();
+
+            this.line_delete_handler = function(event){
+                var node = this;
+                while(node && !node.classList.contains('paymentline')){
+                    node = node.parentNode;
+                }
+                if(node){
+                    self.pos.get('selectedOrder').removePaymentline(node.line)
+                }
+                event.stopPropagation();
+            };
+
+            this.line_change_handler = function(event){
+                var node = this;
+                while(node && !node.classList.contains('paymentline')){
+                    node = node.parentNode;
+                }
+                if(node){
+                    node.line.set_amount(this.value);
+                }
+            };
+
+            this.line_click_handler = function(event){
+                var node = this;
+                while(node && !node.classList.contains('paymentline')){
+                    node = node.parentNode;
+                }
+                if(node){
+                    self.pos.get('selectedOrder').selectPaymentline(node.line);
+                }
+            };
+
+            this.hotkey_handler = function(event){
+                if(event.which === 13){
+                    self.validate_order();
+                }else if(event.which === 27){
+                    self.back();
+                }
+            };
+
+        },
+        show: function(){
+            this._super();
+            var self = this;
+
+            this.enable_numpad();
+            this.focus_selected_line();
+
+            document.body.addEventListener('keyup', this.hotkey_handler);
+
+            this.add_action_button({
+                    label: _t('Back'),
+                    icon: '/point_of_sale/static/src/img/icons/png48/go-previous.png',
+                    click: function(){
+                        self.back();
+                    },
+                });
+
+            this.add_action_button({
+                    label: _t('Validate'),
+                    name: 'validation',
+                    icon: '/point_of_sale/static/src/img/icons/png48/validate.png',
+                    click: function(){
+                        self.validate_order();
+                    },
+                });
+
+            if( this.pos.config.iface_invoicing ){
+                this.add_action_button({
+                        label: _t('Invoice'),
+                        name: 'invoice',
+                        icon: '/point_of_sale/static/src/img/icons/png48/invoice.png',
+                        click: function(){
+                            self.validate_order({invoice: true});
+                        },
+                    });
+            }
+
+            if( this.pos.config.iface_cashdrawer ){
+                this.add_action_button({
+                        label: _t('Cash'),
+                        name: 'cashbox',
+                        icon: '/point_of_sale/static/src/img/open-cashbox.png',
+                        click: function(){
+                            self.pos.proxy.open_cashbox();
+                        },
+                    });
+            }
+
+            this.update_payment_summary();
+
+        },
+        close: function(){
+            this._super();
+            this.disable_numpad();
+            document.body.removeEventListener('keyup',this.hotkey_handler);
+        },
+        remove_empty_lines: function(){
+            var order = this.pos.get('selectedOrder');
+            var lines = order.get('paymentLines').models.slice(0);
+            for(var i = 0; i < lines.length; i++){
+                var line = lines[i];
+                if(line.get_amount() === 0){
+                    order.removePaymentline(line);
+                }
+            }
+        },
+        back: function() {
+            this.remove_empty_lines();
+            this.pos_widget.screen_selector.set_current_screen(this.back_screen);
+        },
+        bind_events: function() {
+            if(this.old_order){
+                this.old_order.unbind(null,null,this);
+            }
+            var order = this.pos.get('selectedOrder');
+                order.bind('change:selected_paymentline',this.focus_selected_line,this);
+
+            this.old_order = order;
+
+            if(this.old_paymentlines){
+                this.old_paymentlines.unbind(null,null,this);
+            }
+            var paymentlines = order.get('paymentLines');
+                paymentlines.bind('add', this.add_paymentline, this);
+                paymentlines.bind('change:selected', this.rerender_paymentline, this);
+                paymentlines.bind('change:amount', function(line){
+                        if(!line.selected && line.node){
+                            line.node.value = line.amount.toFixed(this.pos.currency.decimals);
+                        }
+                        this.update_payment_summary();
+                    },this);
+                paymentlines.bind('remove', this.remove_paymentline, this);
+                paymentlines.bind('all', this.update_payment_summary, this);
+
+            this.old_paymentlines = paymentlines;
+
+            if(this.old_orderlines){
+                this.old_orderlines.unbind(null,null,this);
+            }
+            var orderlines = order.get('orderLines');
+                orderlines.bind('all', this.update_payment_summary, this);
+
+            this.old_orderlines = orderlines;
+        },
+        focus_selected_line: function(){
+            var line = this.pos.get('selectedOrder').selected_paymentline;
+            if(line){
+                var input = line.node.querySelector('input');
+                if(!input){
+                    return;
+                }
+                var value = input.value;
+                input.focus();
+
+                if(this.numpad_state){
+                    this.numpad_state.reset();
+                }
+
+                if(Number(value) === 0){
+                    input.value = '';
+                }else{
+                    input.value = value;
+                    input.select();
+                }
+            }
+        },
+        add_paymentline: function(line) {
+            var list_container = this.el.querySelector('.payment-lines');
+                list_container.appendChild(this.render_paymentline(line));
+
+            if(this.numpad_state){
+                this.numpad_state.reset();
+            }
+        },
+        render_paymentline: function(line){
+            var el_html  = openerp.qweb.render('Paymentline',{widget: this, line: line});
+                el_html  = _.str.trim(el_html);
+
+            var el_node  = document.createElement('tbody');
+                el_node.innerHTML = el_html;
+                el_node = el_node.childNodes[0];
+                el_node.line = line;
+                el_node.querySelector('.paymentline-delete')
+                    .addEventListener('click', this.line_delete_handler);
+                el_node.addEventListener('click', this.line_click_handler);
+                el_node.querySelector('input')
+                    .addEventListener('keyup', this.line_change_handler);
+
+            line.node = el_node;
+
+            return el_node;
+        },
+        rerender_paymentline: function(line){
+            var old_node = line.node;
+            var new_node = this.render_paymentline(line);
+
+            old_node.parentNode.replaceChild(new_node,old_node);
+        },
+        remove_paymentline: function(line){
+            line.node.parentNode.removeChild(line.node);
+            line.node = undefined;
+        },
+        renderElement: function(){
+            this._super();
+
+            var paymentlines   = this.pos.get('selectedOrder').get('paymentLines').models;
+            var list_container = this.el.querySelector('.payment-lines');
+
+            for(var i = 0; i < paymentlines.length; i++){
+                list_container.appendChild(this.render_paymentline(paymentlines[i]));
+            }
+
+            this.update_payment_summary();
+        },
+        update_payment_summary: function() {
+            var currentOrder = this.pos.get('selectedOrder');
+            var paidTotal = currentOrder.getPaidTotal();
+            var dueTotal = currentOrder.getTotalTaxIncluded();
+            var remaining = dueTotal > paidTotal ? dueTotal - paidTotal : 0;
+            var change = paidTotal > dueTotal ? paidTotal - dueTotal : 0;
+
+            this.$('.payment-due-total').html(this.format_currency(dueTotal));
+            this.$('.payment-paid-total').html(this.format_currency(paidTotal));
+            this.$('.payment-remaining').html(this.format_currency(remaining));
+            this.$('.payment-change').html(this.format_currency(change));
+            if(currentOrder.selected_orderline === undefined){
+                remaining = 1;  // What is this ?
+            }
+
+            if(this.pos_widget.action_bar){
+                if (dueTotal <= 400){
+                    this.pos_widget.action_bar.set_button_disabled('validation', !this.is_paid());
+                }else{
+                    this.pos_widget.action_bar.set_button_disabled('validation', true);
+                }
+                this.pos_widget.action_bar.set_button_disabled('invoice', !this.is_paid());
+            }
+        },
+        is_paid: function(){
+            var currentOrder = this.pos.get('selectedOrder');
+            return (currentOrder.getTotalTaxIncluded() < 0.000001
+                   || currentOrder.getPaidTotal() + 0.000001 >= currentOrder.getTotalTaxIncluded());
+
+        },
+        validate_order: function(options) {
+            var self = this;
+            options = options || {};
+
+            var currentOrder = this.pos.get('selectedOrder');
+
+            if(currentOrder.get('orderLines').models.length === 0){
+                this.pos_widget.screen_selector.show_popup('error',{
+                    'message': _t('Empty Order'),
+                    'comment': _t('There must be at least one product in your order before it can be validated'),
+                });
+                return;
+            }
+
+            var plines = currentOrder.get('paymentLines').models;
+            for (var i = 0; i < plines.length; i++) {
+                if (plines[i].get_type() === 'bank' && plines[i].get_amount() < 0) {
+                    this.pos_widget.screen_selector.show_popup('error',{
+                        'message': _t('Negative Bank Payment'),
+                        'comment': _t('You cannot have a negative amount in a Bank payment. Use a cash payment method to return money to the customer.'),
+                    });
+                    return;
+                }
+            }
+
+            if(!this.is_paid()){
+                return;
+            }
+
+            // The exact amount must be paid if there is no cash payment method defined.
+            if (Math.abs(currentOrder.getTotalTaxIncluded() - currentOrder.getPaidTotal()) > 0.00001) {
+                var cash = false;
+                for (var i = 0; i < this.pos.cashregisters.length; i++) {
+                    cash = cash || (this.pos.cashregisters[i].journal.type === 'cash');
+                }
+                if (!cash) {
+                    this.pos_widget.screen_selector.show_popup('error',{
+                        message: _t('Cannot return change without a cash payment method'),
+                        comment: _t('There is no cash payment method available in this point of sale to handle the change.\n\n Please pay the exact amount or add a cash payment method in the point of sale configuration'),
+                    });
+                    return;
+                }
+            }
+
+            if (this.pos.config.iface_cashdrawer) {
+                    this.pos.proxy.open_cashbox();
+            }
+
+            if(options.invoice){
+                // deactivate the validation button while we try to send the order
+                this.pos_widget.action_bar.set_button_disabled('validation',true);
+                this.pos_widget.action_bar.set_button_disabled('invoice',true);
+
+                var invoiced = this.pos.push_and_invoice_order(currentOrder);
+                var dueTotal = currentOrder.getTotalTaxIncluded();
+
+                invoiced.fail(function(error){
+                    if(error === 'error-no-client'){
+                        self.pos_widget.screen_selector.show_popup('error',{
+                            message: _t('An anonymous order cannot be invoiced'),
+                            comment: _t('Please select a client for this order. This can be done by clicking the order tab'),
+                        });
+                    }else{
+                        self.pos_widget.screen_selector.show_popup('error',{
+                            message: _t('The order could not be sent'),
+                            comment: _t('Check your internet connection and try again.'),
+                        });
+                    }
+                    if (dueTotal <= 400){
+                        self.pos_widget.action_bar.set_button_disabled('validation',false);
+                    }else{
+                        self.pos_widget.action_bar.set_button_disabled('validation',true);
+                    }
+                    self.pos_widget.action_bar.set_button_disabled('invoice',false);
+                });
+
+                invoiced.done(function(){
+                    if (dueTotal <= 400){
+                        self.pos_widget.action_bar.set_button_disabled('validation',false);
+                    }else{
+                        self.pos_widget.action_bar.set_button_disabled('validation',true);
+                    }
+                    self.pos_widget.action_bar.set_button_disabled('invoice',false);
+                    self.pos.get('selectedOrder').destroy();
+                });
+
+            }else{
+                this.pos.push_order(currentOrder)
+                if(this.pos.config.iface_print_via_proxy){
+                    var receipt = currentOrder.export_for_printing();
+                    this.pos.proxy.print_receipt(QWeb.render('XmlReceipt',{
+                        receipt: receipt, widget: self,
+                    }));
+                    this.pos.get('selectedOrder').destroy();    //finish order and go back to scan screen
+                }else{
+                    this.pos_widget.screen_selector.set_current_screen(this.next_screen);
+                }
+            }
+
+            // hide onscreen (iOS) keyboard
+            setTimeout(function(){
+                document.activeElement.blur();
+                $("input").blur();
+            },250);
+        },
+        enable_numpad: function(){
+            this.disable_numpad();  //ensure we don't register the callbacks twice
+            this.numpad_state = this.pos_widget.numpad.state;
+            if(this.numpad_state){
+                this.numpad_state.reset();
+                this.numpad_state.changeMode('payment');
+                this.numpad_state.bind('set_value',   this.set_value, this);
+                this.numpad_state.bind('change:mode', this.set_mode_back_to_payment, this);
+            }
+
+        },
+        disable_numpad: function(){
+            if(this.numpad_state){
+                this.numpad_state.unbind('set_value',  this.set_value);
+                this.numpad_state.unbind('change:mode',this.set_mode_back_to_payment);
+            }
+        },
+        set_mode_back_to_payment: function() {
+            this.numpad_state.set({mode: 'payment'});
+        },
+        set_value: function(val) {
+            var selected_line =this.pos.get('selectedOrder').selected_paymentline;
+            if(selected_line){
+                selected_line.set_amount(val);
+                selected_line.node.querySelector('input').value = selected_line.amount.toFixed(2);
+            }
         },
     });
 
