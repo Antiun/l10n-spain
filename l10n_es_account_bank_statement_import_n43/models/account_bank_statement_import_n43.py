@@ -243,9 +243,12 @@ class AccountBankStatementImport(models.TransientModel):
         return partners and partners[0].id or False
 
     def _get_partner(self, line):
+        if not line.get('conceptos'):
+            return False
         partner_id = self._get_partner_from_caixabank(line['conceptos'])
-        if not partner_id:
-            partner_id = self._get_partner_from_santander(line['conceptos'])
+        if partner_id:
+            return partner_id
+        partner_id = self._get_partner_from_santander(line['conceptos'])
         return partner_id
 
     def _get_account(self, line):
