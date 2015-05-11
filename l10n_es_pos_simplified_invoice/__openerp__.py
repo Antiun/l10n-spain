@@ -32,18 +32,6 @@
     "website": "http://www.antiun.com",
     "license": "AGPL-3",
     "category": "Point Of Sale",
-    "description": """
-Punto de venta con factura simplificada
-================================
-
-Adapta el terminal punto de venta a la legislación Española.
-Adapta el ticket de venta a factura simplificada,
-añadiendo el logo de la empresa y el NIF. E incluye los datos
-del cliente (nombre, NIF y dirección).
-Por último chequea que no se realice una factura simplificada con valor
-superior a 400 euros.
-
-    """,
     "depends": ['base', 'point_of_sale'],
     'data': [
         "views/pos_template.xml",
