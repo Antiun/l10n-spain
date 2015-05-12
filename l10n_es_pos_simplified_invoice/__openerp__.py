@@ -36,6 +36,7 @@
     'data': [
         "views/pos_template.xml",
         "views/l10n_es_pos_simplified_invoice_report_receipt_report.xml",
+        "views/point_of_sale_view.xml",
     ],
     "qweb": [
         'static/src/xml/pos.xml',
