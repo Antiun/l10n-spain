@@ -16,7 +16,6 @@
                         VAT: <t t-esc="o.partner_id.vat"/><br />
                         Address: <t t-esc="o.partner_id.street"/><br />
                         </t>
-                        Seller: <span t-field="o.user_id"/><br/>
                         Date: <span t-field="o.date_order"/><br/>
                     </div>
                 </div>

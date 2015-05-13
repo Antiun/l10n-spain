@@ -10,7 +10,6 @@
 	            <t t-esc="widget.pos.company.name"/><br />
 	            NIF: <t t-esc="widget.pos.company.vat || ''"/><br />
 	            Phone: <t t-esc="widget.pos.company.phone || ''"/><br />
-	            Seller: <t t-esc="widget.pos.cashier ? widget.pos.cashier.name : widget.pos.user.name"/><br />
 	            <t t-if="order.attributes.client">
 	            Customer data<br />
 	            Name: <t t-esc="order.attributes.client ? order.attributes.client.name : ''"/><br />
