@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 	<templates id="template" >
 	    <t t-name="PosTicket_l10n_es">
-	        <div class="pos-sale-ticket">
-
+	        <div class="pos-sale-ticket pos-sale-ticket_extra">
+	        <div class="pos-sale-ticket_extra">
 	            <div class="pos-center-align"><t t-esc="new Date().toString(Date.CultureInfo.formatPatterns.shortDate + ' ' +
 	                Date.CultureInfo.formatPatterns.longTime)"/><br/><t t-esc="order.get('name')"/></div>
 	            <br />
-	            <img t-att-src="order.pos.company_logo_base64" t-attf-class="desaturate"/><br />
+	            <img t-att-src="order.pos.company_logo_base64" class="desaturate"/><br />
 	            <t t-esc="widget.pos.company.name"/><br />
 	            NIF: <t t-esc="widget.pos.company.vat || ''"/><br />
 	            Phone: <t t-esc="widget.pos.company.phone || ''"/><br />
@@ -98,6 +98,7 @@
 	                    <t t-esc="widget.pos.config.receipt_footer" />
 	                </div>
 	            </t>
+	        </div>
 	        </div>
 	    </t>
 

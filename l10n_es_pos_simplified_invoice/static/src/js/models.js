@@ -121,9 +121,10 @@ function l10n_es_pos_simplified_invoice_models(instance, module){ //module is in
             }), 0);
         },
         getTotalTaxIncluded: function() {
-            return (this.get('orderLines')).reduce((function(sum, orderLine) {
-                return sum + orderLine.get_price_with_tax();
-            }), 0);
+            return this.getTax() + this.getSubtotal()
+            // return (this.get('orderLines')).reduce((function(sum, orderLine) {
+            //     return sum + orderLine.get_price_with_tax();
+            // }), 0);
         },
         getDiscountTotal: function() {
             return (this.get('orderLines')).reduce((function(sum, orderLine) {
