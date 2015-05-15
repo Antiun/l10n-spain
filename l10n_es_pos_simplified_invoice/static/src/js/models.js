@@ -120,11 +120,13 @@ function l10n_es_pos_simplified_invoice_models(instance, module){ //module is in
                 return sum + orderLine.get_display_price();
             }), 0);
         },
+        getTotalTaxDiscountIncluded: function() {
+            return this.getTax() + this.getSubtotal() - this.getDiscountTotal()
+        },
         getTotalTaxIncluded: function() {
-            return this.getTax() + this.getSubtotal()
-            // return (this.get('orderLines')).reduce((function(sum, orderLine) {
-            //     return sum + orderLine.get_price_with_tax();
-            // }), 0);
+            return (this.get('orderLines')).reduce((function(sum, orderLine) {
+                return sum + orderLine.get_price_with_tax();
+            }), 0);
         },
         getDiscountTotal: function() {
             return (this.get('orderLines')).reduce((function(sum, orderLine) {
@@ -168,7 +170,7 @@ function l10n_es_pos_simplified_invoice_models(instance, module){ //module is in
             }), 0);
         },
         getChange: function() {
-            return this.getPaidTotal() - this.getTotalTaxIncluded();
+            return this.getPaidTotal() - this.getTotalTaxDiscountIncluded();
         },
         getDueLeft: function() {
             return this.getTotalTaxIncluded() - this.getPaidTotal();
