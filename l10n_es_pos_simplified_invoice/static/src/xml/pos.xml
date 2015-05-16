@@ -71,7 +71,7 @@
 	                <tr class="emph">
 	                    <td>Total:</td>
 	                    <td class="pos-right-align">
-	                        <t t-esc="widget.format_currency(order.getTotalTaxDiscountIncluded())"/>
+	                        <t t-esc="widget.format_currency(order.getTotalTaxIncluded())"/>
 	                    </td>
 	                </tr>
 	            </table>
