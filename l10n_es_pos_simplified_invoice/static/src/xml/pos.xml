@@ -4,7 +4,7 @@
 	        <div class="pos-sale-ticket pos-sale-ticket_extra">
 	        <div class="pos-sale-ticket_extra">
 	            <div class="pos-center-align"><t t-esc="new Date().toString(Date.CultureInfo.formatPatterns.shortDate + ' ' +
-	                Date.CultureInfo.formatPatterns.longTime)"/><br/><t t-esc="order.get('name')"/></div>
+	                Date.CultureInfo.formatPatterns.longTime)"/><br/>Simplified Invoice<br/><t t-esc="order.get('name')"/></div>
 	            <br />
 	            <img t-att-src="order.pos.company_logo_base64" class="desaturate"/><br />
 	            <t t-esc="widget.pos.company.name"/><br />

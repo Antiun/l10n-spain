@@ -19,7 +19,7 @@ function l10n_es_pos_simplified_invoice_models(instance, module){ //module is in
                 creationDate:   new Date(),
                 orderLines:     new module.OrderlineCollection(),
                 paymentLines:   new module.PaymentlineCollection(),
-                name:           _t("Simplified invoice ") + this.uid,
+                name:           _t("Order ") + this.uid,
                 client:         null,
             });
             this.selected_orderline   = undefined;
