@@ -6,6 +6,7 @@
             <div class="page">
                 <div class="row">
                     <div class="col-xs-12 text-center">
+                        Simplified Invoice<br />
                         <t t-esc="o.pos_reference"/>
                         <img src="/web/binary/company_logo" /><br />
                         <t t-esc="o.user_id.company_id.name"/><br />

@@ -58,7 +58,7 @@ msgstr "Atras"
 
 #. module: l10n_es_pos_simplified_invoice
 #. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:156
+#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:157
 #, python-format
 msgid "Barcode"
 msgstr "Código de barras"
@@ -100,8 +100,8 @@ msgstr "Compruebe su conexión a Internet y vuelva a intentarlo."
 
 #. module: l10n_es_pos_simplified_invoice
 #. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:127
 #: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:128
+#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:129
 #, python-format
 msgid "City"
 msgstr "Ciudad"
@@ -115,7 +115,7 @@ msgstr "No se puede leer la imagen"
 
 #. module: l10n_es_pos_simplified_invoice
 #. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:135
+#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:136
 #, python-format
 msgid "Country"
 msgstr "País"
@@ -154,7 +154,7 @@ msgstr "Descuento:"
 
 #. module: l10n_es_pos_simplified_invoice
 #. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:148
+#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:149
 #, python-format
 msgid "Email"
 msgstr "Email"
@@ -190,7 +190,7 @@ msgstr "NIF:"
 
 #. module: l10n_es_pos_simplified_invoice
 #. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:115
+#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:116
 #, python-format
 msgid "Name"
 msgstr "Nombre"
@@ -219,7 +219,7 @@ msgstr "Siguiente pedido"
 
 #. module: l10n_es_pos_simplified_invoice
 #. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:137
+#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:138
 #, python-format
 msgid "None"
 msgstr "Ninguno"
@@ -232,13 +232,20 @@ msgid "Only web-compatible Image formats such as .png or .jpeg are supported"
 msgstr "Solamente son compatibles los formatos de imagen .png o .jpeg"
 
 #. module: l10n_es_pos_simplified_invoice
+#. openerp-web
+#: code:addons/l10n_es_pos_simplified_invoice/static/src/js/models.js:22
+#, python-format
+msgid "Order "
+msgstr "Pedido "
+
+#. module: l10n_es_pos_simplified_invoice
 #: view:website:point_of_sale.report_receipt
 msgid "Payment Mode"
 msgstr "Modo de pago"
 
 #. module: l10n_es_pos_simplified_invoice
 #. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:152
+#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:153
 #, python-format
 msgid "Phone"
 msgstr "Teléfono"
@@ -259,7 +266,7 @@ msgstr "Seleccione un cliente para esta orden. Esto se puede hacer haciendo clic
 
 #. module: l10n_es_pos_simplified_invoice
 #. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:131
+#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:132
 #, python-format
 msgid "Postcode"
 msgstr "Código postal"
@@ -282,6 +289,11 @@ msgid "Quantity"
 msgstr "Cantidad"
 
 #. module: l10n_es_pos_simplified_invoice
+#: view:pos.order:l10n_es_pos_simplified_invoice.view_pos_order_l10n_es_pos_filter
+msgid "Search Sales Order"
+msgstr "Buscar pedidos de compra"
+
+#. module: l10n_es_pos_simplified_invoice
 #. openerp-web
 #: code:addons/l10n_es_pos_simplified_invoice/static/src/js/screens.js:212
 #, python-format
@@ -289,22 +301,22 @@ msgid "Set Customer"
 msgstr "Seleccionar Cliente"
 
 #. module: l10n_es_pos_simplified_invoice
-#: model:ir.actions.act_window,name:l10n_es_pos_simplified_invoice.action_pos_pos_form
-#: model:ir.ui.menu,name:l10n_es_pos_simplified_invoice.menu_point_ofsale_l10n_es_pos
-msgid "Simplified invoice"
+#. openerp-web
+#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:7
+#: view:website:point_of_sale.report_receipt
+#, python-format
+msgid "Simplified Invoice"
+msgstr "Factura simplificada"
+
+#. module: l10n_es_pos_simplified_invoice
+#: view:pos.order:l10n_es_pos_simplified_invoice.view_pos_order_l10n_es_pos_filter
+msgid "Simplified Invoice"
 msgstr "Factura simplificada"
 
 #. module: l10n_es_pos_simplified_invoice
 #. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/js/models.js:22
-#, python-format
-msgid "Simplified invoice "
-msgstr "Factura simplificada "
-
-#. module: l10n_es_pos_simplified_invoice
-#. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:123
 #: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:124
+#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:125
 #, python-format
 msgid "Street"
 msgstr "Calle"
@@ -318,7 +330,7 @@ msgstr "Subtotal:"
 
 #. module: l10n_es_pos_simplified_invoice
 #. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:160
+#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:161
 #, python-format
 msgid "Tax ID"
 msgstr "ID impuesto"
@@ -417,7 +429,7 @@ msgstr "Es posible que no tengas conexión a internet."
 
 #. module: l10n_es_pos_simplified_invoice
 #. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:132
+#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:133
 #, python-format
 msgid "ZIP"
 msgstr "ZIP"

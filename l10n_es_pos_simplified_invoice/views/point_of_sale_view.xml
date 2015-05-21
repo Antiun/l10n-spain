@@ -2,21 +2,16 @@
 <openerp>
 <data>
 
-        <record model="ir.actions.act_window" id="action_pos_pos_form">
-            <field name="name">Simplified invoice</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="res_model">pos.order</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-            <field name="view_id" eval="False"/>
-            <field name="domain">[]</field>
-            <field name="inherit_id" ref="point_of_sale.action_pos_pos_form"/>
+        <record id="view_pos_order_l10n_es_pos_filter" model="ir.ui.view">
+            <field name="name">pos.order.list.select</field>
+            <field name="model">pos.order</field>
+            <field name="inherit_id" ref="point_of_sale.view_pos_order_filter"/>
+            <field name="arch" type="xml">
+                <search string="Search Sales Order">
+                    <filter icon="terp-check" string="Simplified Invoice" domain="[('invoice_id','=', False)]"/>
+                </search>
+            </field>
         </record>
-
-        <menuitem id="point_of_sale.menu_point_ofsale"/>
-        <menuitem name="Simplified invoice" parent="point_of_sale.menu_point_of_sale" id="menu_point_ofsale_l10n_es_pos" action="action_pos_pos_form" sequence="2" groups="point_of_sale.group_pos_manager,point_of_sale.group_pos_user" />
-
-
 
 </data>
 </openerp>
