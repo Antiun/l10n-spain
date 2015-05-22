@@ -23,6 +23,7 @@ msgid "% discount"
 msgstr "% descuento"
 
 #. module: l10n_es_pos_simplified_invoice
+#. module: l10n_es_pos_simplified_invoice
 #. openerp-web
 #: code:addons/l10n_es_pos_simplified_invoice/static/src/js/screens.js:270
 #, python-format
@@ -239,6 +240,11 @@ msgid "Order "
 msgstr "Pedido "
 
 #. module: l10n_es_pos_simplified_invoice
+#: model:ir.actions.act_window,name:l10n_es_pos_simplified_invoice.action_l10n_es_pos_pos_form
+msgid "Orders"
+msgstr "Pedidos"
+
+#. module: l10n_es_pos_simplified_invoice
 #: view:website:point_of_sale.report_receipt
 msgid "Payment Mode"
 msgstr "Modo de pago"
@@ -289,11 +295,6 @@ msgid "Quantity"
 msgstr "Cantidad"
 
 #. module: l10n_es_pos_simplified_invoice
-#: view:pos.order:l10n_es_pos_simplified_invoice.view_pos_order_l10n_es_pos_filter
-msgid "Search Sales Order"
-msgstr "Buscar pedidos de compra"
-
-#. module: l10n_es_pos_simplified_invoice
 #. openerp-web
 #: code:addons/l10n_es_pos_simplified_invoice/static/src/js/screens.js:212
 #, python-format
@@ -309,9 +310,9 @@ msgid "Simplified Invoice"
 msgstr "Factura simplificada"
 
 #. module: l10n_es_pos_simplified_invoice
-#: view:pos.order:l10n_es_pos_simplified_invoice.view_pos_order_l10n_es_pos_filter
-msgid "Simplified Invoice"
-msgstr "Factura simplificada"
+#: model:ir.ui.menu,name:l10n_es_pos_simplified_invoice.menu_point_ofsale_l10n_es_pos
+msgid "Simplified invoice"
+msgstr "Facturas simplificadas"
 
 #. module: l10n_es_pos_simplified_invoice
 #. openerp-web
