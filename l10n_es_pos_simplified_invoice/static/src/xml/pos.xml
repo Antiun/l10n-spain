@@ -42,14 +42,14 @@
 	                        <t t-esc="orderline.get_quantity_str_with_unit()"/>
 	                    </td>
 	                    <td class="pos-right-align">
-	                        <t t-esc="widget.format_currency(orderline.get_display_price())"/>
+	                        <t t-esc="widget.format_currency(orderline.get_price_with_tax())"/>
 	                    </td>
 	                </tr>
 	            </table>
 	            <br />
 	            <table>
 	                <tr>
-	                    <td>Subtotal:</td>
+	                    <td>Base imponible:</td>
 	                    <td class="pos-right-align">
 	                        <t t-esc="widget.format_currency(order.getSubtotal())"/>
 	                    </td>
@@ -165,4 +165,26 @@
             </div>
         </section>
     </t>
+
+    <t t-name="Product_l10n_es">
+        <span class='product' t-att-data-product-id="product.id">
+            <div class="product-img">
+                <img t-att-src='image_url' />
+                <t t-if="!product.to_weight">
+                    <span class="price-tag">
+                        <t t-esc="widget.format_currency(product.price_with_tax,'Product Price')"/>
+                    </span>
+                </t>
+                <t t-if="product.to_weight">
+                    <span class="price-tag">
+                        <t t-esc="widget.format_currency(product.price,'Product Price')+'/Kg'"/>
+                    </span>
+                </t>
+            </div>
+            <div class="product-name">
+                <t t-esc="product.display_name"/>
+            </div>
+        </span>
+    </t>
+
 	</templates>

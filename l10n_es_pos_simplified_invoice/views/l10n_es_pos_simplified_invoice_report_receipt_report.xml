@@ -42,10 +42,12 @@
                             </td>
                             <td class="text-right">
                                 <t t-if="o.state != 'cancel' and o.statement_ids">
-                                    <span t-esc="formatLang(net(line.id), currency_obj=res_company.currency_id)"/>
+                                    <span t-esc="line.price_subtotal_incl"/>
+                                    <!--<span t-esc="formatLang(net(line.id), currency_obj=res_company.currency_id)"/>-->
                                 </t>
                                 <t t-if="line.discount != 0.0">
-                                    <span t-esc="formatLang(line.discount, currency_obj=res_company.currency_id)"/>
+                                    <span t-esc="(line.price_subtotal_incl - line.discount)"/>
+                                    <!--<span t-esc="formatLang(line.discount, currency_obj=res_company.currency_id)"/>-->
                                 </t>
                             </td>
                         </tr>
@@ -56,6 +58,12 @@
                     <div class="col-xs-6 pull-right">
                         <table class="table table-condensed">
                             <tr class="border-black">
+                                <td><strong>Base imponible</strong></td>
+                                <td class="text-right">
+                                    <strong t-esc="(o.amount_total - o.amount_tax)"/>
+                                </td>
+                            </tr>
+                            <tr>
                                 <td><strong>Taxes</strong></td>
                                 <td class="text-right">
                                     <strong t-esc="formatLang(o.amount_tax, currency_obj=res_company.currency_id)"/>
