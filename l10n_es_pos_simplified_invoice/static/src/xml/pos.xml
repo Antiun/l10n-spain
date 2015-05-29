@@ -24,5 +24,8 @@
                 Address: <t t-esc="order.attributes.client ? order.attributes.client.street : ''"/>
             </t>
         </t>
+        <t t-jquery="[t-esc='widget.format_currency(order.getSubtotal())']" t-operation="replace">
+            <t t-esc="widget.format_currency(order.getTotalTaxExcluded())"/>
+        </t>
     </t>
 </templates>
