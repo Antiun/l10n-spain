@@ -26,9 +26,9 @@ Credits
 Contributors
 ------------
 
-* Antiun Ingenieria S.L. (Madrid, Spain, http://www.antiun.com)
 * Endika Iglesias <endikaig@antiun.com>
 * Pedro M. Baeza [Serv. Tecnológicos Avanzados] <pedro.baeza@serviciosbaeza.com>
+* Antonio Espinosa <antonioea@antiun.com>
 
 Maintainer
 ----------
