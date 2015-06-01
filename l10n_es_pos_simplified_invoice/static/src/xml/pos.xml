@@ -2,7 +2,7 @@
 <templates id="template" xml:space="preserve">
     <t t-extend="PosTicket">
         <t t-jquery=".pos-center-align t:first" t-operation="after">
-            <br/><span>Factura simplificada</span><br/>
+            <br/><span>Simplified invoice</span><br/>
         </t>
         <t t-jquery="[t-esc='widget.pos.company.name']" t-operation="before">
             <div class="pos-center-align">
@@ -13,7 +13,7 @@
             -->
         </t>
         <t t-jquery="[t-esc='widget.pos.company.name']" t-operation="after">
-            <br />NIF: <t t-esc="widget.pos.company.vat || ''"/>
+            <br />VAT: <t t-esc="widget.pos.company.vat || ''"/>
         </t>
         <t t-jquery="[t-esc='widget.pos.shop.name']" t-operation="after">
             <t t-if="order.attributes.client">
