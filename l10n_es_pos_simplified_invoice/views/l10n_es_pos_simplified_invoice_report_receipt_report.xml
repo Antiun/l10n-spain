@@ -2,103 +2,40 @@
 <openerp>
 <data>
 <template id="l10n_es_pos_simplified_invoice_report_receipt" inherit_id="point_of_sale.report_receipt">
-            <xpath expr="//div[@class='page']" position="replace">
-            <div class="page">
-                <div class="row">
-                    <div class="col-xs-12 text-center">
-                        Simplified Invoice<br />
-                        <t t-esc="o.pos_reference"/>
-                        <img src="/web/binary/company_logo" /><br />
-                        <t t-esc="o.user_id.company_id.name"/><br />
-                        NIF: <t t-esc="o.user_id.company_id.vat"/><br />
-                        <t t-if="o.partner_id">
-                        Customer data<br />
-                        Name: <t t-esc="o.partner_id.name"/><br />
-                        VAT: <t t-esc="o.partner_id.vat"/><br />
-                        Address: <t t-esc="o.partner_id.street"/><br />
-                        </t>
-                        Date: <span t-field="o.date_order"/><br/>
-                    </div>
-                </div>
 
-                <div class="row">
-                </div>
+    <xpath expr="//div[@class='col-xs-12 text-center']/h2" position="before">
+            <span>Simplified Invoice</span><br />
+            <t t-esc="o.pos_reference"/>
+            <img src="/web/binary/company_logo" /><br />
+    </xpath>
 
-                <table class="table table-condensed">
-                    <thead>
-                        <tr>
-                            <th>Description</th>
-                            <th class="text-right">Quantity</th>
-                            <th class="text-right">Price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr t-foreach="o.lines" t-as="line">
-                            <td><span t-field="line.product_id"/></td>
-                            <td class="text-right">
-                                <t t-if="o.state != 'cancel' and o.statement_ids">
-                                    <span t-esc="'%.f' % line.qty"/>
-                                </t>
-                            </td>
-                            <td class="text-right">
-                                <t t-if="o.state != 'cancel' and o.statement_ids">
-                                    <span t-esc="line.price_subtotal_incl"/>
-                                    <!--<span t-esc="formatLang(net(line.id), currency_obj=res_company.currency_id)"/>-->
-                                </t>
-                                <t t-if="line.discount != 0.0">
-                                    <span t-esc="(line.price_subtotal_incl - line.discount)"/>
-                                    <!--<span t-esc="formatLang(line.discount, currency_obj=res_company.currency_id)"/>-->
-                                </t>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+    <xpath expr="//div[@class='col-xs-12 text-center']/h2" position="after">
+            <t t-esc="o.user_id.company_id.name"/><br />
+            NIF: <t t-esc="o.user_id.company_id.vat"/><br />
+            <t t-if="o.partner_id">
+                Customer data<br />
+                Name: <t t-esc="o.partner_id.name"/><br />
+                VAT: <t t-esc="o.partner_id.vat"/><br />
+                Address: <t t-esc="o.partner_id.street"/><br />
+            </t>
+    </xpath>
 
-                <div class="row">
-                    <div class="col-xs-6 pull-right">
-                        <table class="table table-condensed">
-                            <tr class="border-black">
-                                <td><strong>Base imponible</strong></td>
-                                <td class="text-right">
-                                    <strong t-esc="(o.amount_total - o.amount_tax)"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><strong>Taxes</strong></td>
-                                <td class="text-right">
-                                    <strong t-esc="formatLang(o.amount_tax, currency_obj=res_company.currency_id)"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><strong>Total</strong></td>
-                                <td class="text-right">
-                                    <strong t-esc="formatLang(o.amount_total, currency_obj=res_company.currency_id)"/>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
+    <xpath expr="//div[@class='col-xs-12 text-center']/h2" position="attributes">
+        <attribute name="style">display:none;</attribute>
+    </xpath>
 
-                <table class="table table-condensed">
-                    <thead>
-                        <tr>
-                            <th>Payment Mode</th>
-                            <th>Amount</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr t-foreach="get_journal_amt(o)" t-as="d">
-                            <td>
-                                <span t-esc="d['name']"/>
-                            </td>
-                            <td>
-                                <span t-esc="formatLang(d['amt'], currency_obj=res_company.currency_id)"/>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            </xpath>
+    <xpath expr="//div[@class='col-xs-12 text-center']/h2" position="attributes">
+        <attribute name="style">display:none;</attribute>
+    </xpath>
+
+    <xpath expr="//div/table[@class='table table-condensed']/tbody/tr/td[@class='text-right'][2]/t[1]/span" position="attributes">
+        <attribute name="t-esc">formatLang(line.price_subtotal_incl, currency_obj=res_company.currency_id)</attribute>
+    </xpath>
+
+    <xpath expr="//div/table[@class='table table-condensed']/tbody/tr/td[@class='text-right'][2]/t[2]/span" position="attributes">
+        <attribute name="t-esc">formatLang((line.price_subtotal_incl - line.discount), currency_obj=res_company.currency_id)</attribute>
+    </xpath>
+
 </template>
 </data>
 </openerp>
