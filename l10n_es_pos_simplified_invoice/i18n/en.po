@@ -40,7 +40,7 @@ msgstr "<p class=\"oe_view_nocontent_create\">\n"
 #: view:website:point_of_sale.report_receipt
 #, python-format
 msgid "Address:"
-msgstr "Dirección:"
+msgstr "Address:"
 
 #. module: l10n_es_pos_simplified_invoice
 #. openerp-web
@@ -48,7 +48,7 @@ msgstr "Dirección:"
 #: view:website:point_of_sale.report_receipt
 #, python-format
 msgid "Customer data"
-msgstr "Datos cliente"
+msgstr "Customer data"
 
 #. module: l10n_es_pos_simplified_invoice
 #: view:website:point_of_sale.report_receipt
@@ -61,12 +61,12 @@ msgstr "NIF:"
 #: view:website:point_of_sale.report_receipt
 #, python-format
 msgid "Name:"
-msgstr "Nombre:"
+msgstr "Name:"
 
 #. module: l10n_es_pos_simplified_invoice
 #: view:website:point_of_sale.report_receipt
 msgid "Simplified Invoice"
-msgstr "Factura simplificada"
+msgstr "Simplified Invoice"
 
 #. module: l10n_es_pos_simplified_invoice
 #. openerp-web
@@ -75,7 +75,7 @@ msgstr "Factura simplificada"
 #: model:ir.ui.menu,name:l10n_es_pos_simplified_invoice.menu_point_ofsale_l10n_es_pos
 #, python-format
 msgid "Simplified invoice"
-msgstr "Factura simplificada"
+msgstr "Simplified invoice"
 
 #. module: l10n_es_pos_simplified_invoice
 #. openerp-web
@@ -84,4 +84,4 @@ msgstr "Factura simplificada"
 #: view:website:point_of_sale.report_receipt
 #, python-format
 msgid "VAT:"
-msgstr "NIF:"
+msgstr "VAT:"
