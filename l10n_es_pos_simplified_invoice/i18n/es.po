@@ -16,24 +16,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: l10n_es_pos_simplified_invoice
-<<<<<<< HEAD
-#. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:37
-#, python-format
-msgid "% discount"
-msgstr "% descuento"
-
-#. module: l10n_es_pos_simplified_invoice
-#. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/js/screens.js:270
-#, python-format
-msgid "A Customer Name Is Required"
-msgstr "Es necesario el nombre del cliente"
-
-#. module: l10n_es_pos_simplified_invoice
-#. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:16
-=======
 #: model:ir.actions.act_window,help:l10n_es_pos_simplified_invoice.action_l10n_es_pos_pos_form
 msgid "<p class=\"oe_view_nocontent_create\">\n"
 "                Click to create a new order.\n"
@@ -56,107 +38,19 @@ msgstr "<p class=\"oe_view_nocontent_create\">\n"
 #. openerp-web
 #: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:23
 #: view:website:point_of_sale.report_receipt
->>>>>>> a101db3... [UPDATE] lang
 #, python-format
 msgid "Address:"
 msgstr "Dirección:"
 
 #. module: l10n_es_pos_simplified_invoice
-<<<<<<< HEAD
-#. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:156
-#, python-format
-msgid "Barcode"
-msgstr "Código de barras"
-
-#. module: l10n_es_pos_simplified_invoice
-#. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/js/screens.js:214
-#, python-format
-msgid "Change Customer"
-msgstr "Cambiar de cliente"
-
-#. module: l10n_es_pos_simplified_invoice
-#. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:91
-#, python-format
-msgid "Change:"
-msgstr "Cambio:"
-
-#. module: l10n_es_pos_simplified_invoice
-#. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:127
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:128
-#, python-format
-msgid "City"
-msgstr "Ciudad"
-
-#. module: l10n_es_pos_simplified_invoice
-#. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/js/screens.js:360
-#, python-format
-msgid "Could Not Read Image"
-msgstr "No se puede leer la imagen"
-
-#. module: l10n_es_pos_simplified_invoice
-#. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:135
-#, python-format
-msgid "Country"
-msgstr "País"
-
-#. module: l10n_es_pos_simplified_invoice
-#. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:13
-=======
 #. openerp-web
 #: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:20
 #: view:website:point_of_sale.report_receipt
->>>>>>> a101db3... [UPDATE] lang
 #, python-format
 msgid "Customer data"
 msgstr "Datos cliente"
 
 #. module: l10n_es_pos_simplified_invoice
-<<<<<<< HEAD
-#. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/js/screens.js:217
-#, python-format
-msgid "Deselect Customer"
-msgstr "Deselecionar cliente"
-
-#. module: l10n_es_pos_simplified_invoice
-#. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:66
-#, python-format
-msgid "Discount:"
-msgstr "Descuento:"
-
-#. module: l10n_es_pos_simplified_invoice
-#. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:148
-#, python-format
-msgid "Email"
-msgstr "Email"
-
-#. module: l10n_es_pos_simplified_invoice
-#. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/js/screens.js:288
-#, python-format
-msgid "Error: Could not Save Changes"
-msgstr "Error: No se puede guardar los cambios"
-
-#. module: l10n_es_pos_simplified_invoice
-#. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:115
-#, python-format
-msgid "Name"
-msgstr "Nombre"
-
-#. module: l10n_es_pos_simplified_invoice
-#. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:14
-=======
 #: view:website:point_of_sale.report_receipt
 msgid "NIF:"
 msgstr "NIF:"
@@ -165,115 +59,14 @@ msgstr "NIF:"
 #. openerp-web
 #: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:21
 #: view:website:point_of_sale.report_receipt
->>>>>>> a101db3... [UPDATE] lang
 #, python-format
 msgid "Name:"
 msgstr "Nombre:"
 
 #. module: l10n_es_pos_simplified_invoice
-<<<<<<< HEAD
-#. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/js/screens.js:24
-#, python-format
-msgid "Next Order"
-msgstr "Siguiente pedido"
-
-#. module: l10n_es_pos_simplified_invoice
-#. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:137
-#, python-format
-msgid "None"
-msgstr "Ninguno"
-
-#. module: l10n_es_pos_simplified_invoice
-#. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/js/screens.js:346
-#, python-format
-msgid "Only web-compatible Image formats such as .png or .jpeg are supported"
-msgstr "Solamente son compatibles los formatos de imagen .png o .jpeg"
-
-#. module: l10n_es_pos_simplified_invoice
-#. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:152
-#, python-format
-msgid "Phone"
-msgstr "Teléfono"
-
-#. module: l10n_es_pos_simplified_invoice
-#. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:10
-#, python-format
-msgid "Phone:"
-msgstr "Teléfono:"
-
-#. module: l10n_es_pos_simplified_invoice
-#. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:131
-#, python-format
-msgid "Postcode"
-msgstr "Código postal"
-
-#. module: l10n_es_pos_simplified_invoice
-#. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/js/screens.js:18
-#, python-format
-msgid "Print"
-msgstr "Imprimir"
-
-#. module: l10n_es_pos_simplified_invoice
-#. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:11
-#, python-format
-msgid "Seller:"
-msgstr "Vendedor:"
-
-#. module: l10n_es_pos_simplified_invoice
-#. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/js/screens.js:212
-#, python-format
-msgid "Set Customer"
-msgstr "Seleccionar cliente"
-
-#. module: l10n_es_pos_simplified_invoice
-#. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:123
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:124
-#, python-format
-msgid "Street"
-msgstr "Calle"
-
-#. module: l10n_es_pos_simplified_invoice
-#. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:52
-#, python-format
-msgid "Subtotal:"
-msgstr "Subtotal:"
-
-#. module: l10n_es_pos_simplified_invoice
-#. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:160
-#, python-format
-msgid "Tax ID"
-msgstr "ID impuesto"
-
-#. module: l10n_es_pos_simplified_invoice
-#. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/js/screens.js:361
-#, python-format
-msgid "The provided file could not be read due to an unknown error"
-msgstr "El archivo proporcionado no se puede leer debido a un error desconocido"
-
-#. module: l10n_es_pos_simplified_invoice
-#. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:72
-#, python-format
-msgid "Total:"
-msgstr "Total:"
-=======
 #: view:website:point_of_sale.report_receipt
 msgid "Simplified Invoice"
 msgstr "Factura simplificada"
->>>>>>> a101db3... [UPDATE] lang
 
 #. module: l10n_es_pos_simplified_invoice
 #. openerp-web
@@ -286,37 +79,9 @@ msgstr "Factura simplificada"
 
 #. module: l10n_es_pos_simplified_invoice
 #. openerp-web
-<<<<<<< HEAD
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:15
-#, python-format
-msgid "VAT:"
-msgstr "NIF:"
-
-#. module: l10n_es_pos_simplified_invoice
-#. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:36
-#, python-format
-msgid "With a"
-msgstr "Con un"
-
-#. module: l10n_es_pos_simplified_invoice
-#. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/js/screens.js:289
-#, python-format
-msgid "Your Internet connection is probably down."
-msgstr "Es posible que no tengas conexión a internet."
-
-#. module: l10n_es_pos_simplified_invoice
-#. openerp-web
-#: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:132
-#, python-format
-msgid "ZIP"
-msgstr "ZIP"
-=======
 #: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:16
 #: code:addons/l10n_es_pos_simplified_invoice/static/src/xml/pos.xml:22
 #: view:website:point_of_sale.report_receipt
 #, python-format
 msgid "VAT:"
 msgstr "NIF:"
->>>>>>> a101db3... [UPDATE] lang
