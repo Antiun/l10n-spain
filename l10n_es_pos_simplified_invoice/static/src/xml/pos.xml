@@ -4,14 +4,6 @@
         <t t-jquery=".pos-center-align t:first" t-operation="after">
             <br/><span>Simplified invoice</span><br/>
         </t>
-        <t t-jquery="[t-esc='widget.pos.company.name']" t-operation="before">
-            <div class="pos-center-align">
-                <img t-att-src="widget.pos.company_logo_base64"/><br />
-            </div>
-            <!--
-                <t t-raw="widget.pos.company_logo.outerHTML"/>
-            -->
-        </t>
         <t t-jquery="[t-esc='widget.pos.company.name']" t-operation="after">
             <br />VAT: <t t-esc="widget.pos.company.vat || ''"/>
         </t>

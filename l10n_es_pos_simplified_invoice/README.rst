@@ -6,8 +6,7 @@ Punto de venta con factura simplificada
 
 Adapta el terminal punto de venta a la legislación Española.
 Adapta el ticket de venta a factura simplificada,
-añadiendo el logo de la empresa y el NIF. E incluye los datos
-del cliente (nombre, NIF y dirección).
+añadiendo el NIF. E incluye los datos del cliente (nombre, NIF y dirección).
 Por último chequea que no se realice una factura simplificada con valor
 superior a 400 euros.
 
