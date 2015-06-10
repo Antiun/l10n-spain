@@ -23,10 +23,6 @@
         <attribute name="style">display:none;</attribute>
     </xpath>
 
-    <xpath expr="//div[@class='col-xs-12 text-center']/h2" position="attributes">
-        <attribute name="style">display:none;</attribute>
-    </xpath>
-
 </template>
 </data>
 </openerp>
