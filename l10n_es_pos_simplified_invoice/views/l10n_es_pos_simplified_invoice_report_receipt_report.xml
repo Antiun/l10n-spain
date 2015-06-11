@@ -6,7 +6,6 @@
     <xpath expr="//div[@class='col-xs-12 text-center']/h2" position="before">
             <span>Simplified Invoice</span><br />
             <t t-esc="o.pos_reference"/>
-            <img src="/web/binary/company_logo" /><br />
     </xpath>
 
     <xpath expr="//div[@class='col-xs-12 text-center']/h2" position="after">
@@ -18,10 +17,6 @@
                 VAT: <t t-esc="o.partner_id.vat"/><br />
                 Address: <t t-esc="o.partner_id.street"/><br />
             </t>
-    </xpath>
-
-    <xpath expr="//div[@class='col-xs-12 text-center']/h2" position="attributes">
-        <attribute name="style">display:none;</attribute>
     </xpath>
 
     <xpath expr="//div[@class='col-xs-12 text-center']/h2" position="attributes">
